@@ -62,8 +62,16 @@ const STEPS = [
 
 export function ProcessSection() {
   return (
-    <section id="proceso" className="bg-navy px-6 py-20 text-cream md:py-28">
-      <div className="mx-auto max-w-6xl">
+    <section id="proceso" className="relative overflow-hidden bg-navy px-6 py-20 text-cream md:py-28">
+      <div
+        className="pointer-events-none absolute inset-0 -z-0 hidden lg:block"
+        aria-hidden="true"
+      >
+        <div className="absolute -left-16 top-0 h-[22rem] w-[22rem] rounded-full bg-gold/[0.12] blur-[100px]" />
+        <div className="absolute -right-10 bottom-0 h-[24rem] w-[24rem] rounded-full bg-accent/[0.10] blur-[110px]" />
+      </div>
+
+      <div className="relative mx-auto max-w-6xl">
         <div className="max-w-2xl">
           <p className="text-sm font-semibold uppercase tracking-wide text-cream/60">
             Cómo funciona

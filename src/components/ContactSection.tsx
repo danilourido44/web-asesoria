@@ -14,8 +14,16 @@ const FIELDS = [
 
 export function ContactSection() {
   return (
-    <section id="contacto" className="bg-navy px-6 py-20 text-cream md:py-28">
-      <div className="mx-auto grid max-w-6xl gap-12 md:grid-cols-2 md:items-start">
+    <section id="contacto" className="relative overflow-hidden bg-navy px-6 py-20 text-cream md:py-28">
+      <div
+        className="pointer-events-none absolute inset-0 -z-0 hidden lg:block"
+        aria-hidden="true"
+      >
+        <div className="absolute -left-10 bottom-0 h-[22rem] w-[22rem] rounded-full bg-gold/[0.12] blur-[100px]" />
+        <div className="absolute -right-16 top-0 h-[24rem] w-[24rem] rounded-full bg-accent/[0.10] blur-[110px]" />
+      </div>
+
+      <div className="relative mx-auto grid max-w-6xl gap-12 md:grid-cols-2 md:items-start">
         <div>
           <p className="text-sm font-semibold uppercase tracking-wide text-cream/60">
             Primer paso
