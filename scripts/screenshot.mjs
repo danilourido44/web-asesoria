@@ -29,13 +29,23 @@ page.on("pageerror", (err) => errors.push(String(err)));
 
 await page.goto(url, { waitUntil: "networkidle" });
 
-if (waitMs) {
-  await page.waitForTimeout(Number(waitMs));
+if (selector) {
+  // Desplazar primero: las imágenes con loading="lazy" (p.ej. next/image)
+  // no cargan hasta que el elemento entra en el viewport.
+  await page.locator(selector).scrollIntoViewIfNeeded();
 }
+
+await page.waitForTimeout(waitMs ? Number(waitMs) : 400);
 
 if (selector) {
   await page.locator(selector).screenshot({ path: outPath });
 } else {
+  // Fuerza la carga de imágenes lazy en toda la página antes de la captura.
+  await page.evaluate(async () => {
+    const imgs = Array.from(document.images);
+    for (const img of imgs) img.scrollIntoView();
+    await new Promise((r) => setTimeout(r, 300));
+  });
   await page.screenshot({ path: outPath, fullPage: true });
 }
 

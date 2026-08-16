@@ -1,7 +1,10 @@
+import Image from "next/image";
+
 const SERVICES = [
   {
-    badge: "El punto de partida",
+    badge: null,
     name: "Bandeja Cero Documentos",
+    photo: "/photos/bandeja-documentos.jpeg",
     description:
       "Recibe, ordena, renombra, clasifica y registra automáticamente facturas, nóminas y justificantes de email, WhatsApp y carpetas.",
     roi: "25–60 h liberadas/mes",
@@ -15,11 +18,12 @@ const SERVICES = [
       "Tenéis muchos emails, carpetas desordenadas y gente dedicada a introducir datos a mano.",
     setup: "4.000–8.000 €",
     monthly: "600–1.200 €/mes",
-    highlighted: true,
+    highlighted: false,
   },
   {
-    badge: null,
+    badge: "El punto de partida",
     name: "Expediente Completo 30D",
+    photo: "/photos/expediente-completo.jpeg",
     description:
       "Sabe qué debe entregar cada cliente, qué ha enviado ya y qué falta. Envía recordatorios personalizados y solo avisa a tu equipo ante una excepción.",
     roi: "20–40 h liberadas/mes",
@@ -33,11 +37,12 @@ const SERVICES = [
       "Vuestros empleados se quejan de que los clientes nunca entregan todo, o siempre tarde.",
     setup: "3.000–6.000 €",
     monthly: "500–1.000 €/mes",
-    highlighted: false,
+    highlighted: true,
   },
   {
     badge: null,
     name: "Cierre Fiscal Blindado",
+    photo: "/photos/cierre-fiscal.jpeg",
     description:
       "Controla cada expediente desde que llega la documentación hasta que queda listo para revisión: información incompleta, tareas bloqueadas y lo que puede llegar tarde al vencimiento.",
     roi: "1.500–5.000 €/mes",
@@ -75,6 +80,34 @@ const COMPARISON_ROWS = [
     valor: "Máxima",
   },
 ];
+
+function ServicePhoto({
+  src,
+  highlighted,
+}: {
+  src: string;
+  highlighted: boolean;
+}) {
+  return (
+    <div className="relative -mx-8 -mt-10 mb-6 h-44">
+      <Image
+        src={src}
+        alt=""
+        fill
+        sizes="(max-width: 768px) 100vw, 33vw"
+        className="object-cover"
+      />
+      <div
+        className={
+          highlighted
+            ? "absolute inset-0 bg-gradient-to-t from-navy via-navy/55 to-navy/0"
+            : "absolute inset-0 bg-gradient-to-t from-cream via-cream/55 to-cream/0"
+        }
+        aria-hidden="true"
+      />
+    </div>
+  );
+}
 
 function CheckIcon({ className = "" }: { className?: string }) {
   return (
@@ -114,10 +147,12 @@ export function ServicesSection() {
               key={service.name}
               className={
                 service.highlighted
-                  ? "flex flex-col rounded-2xl bg-navy px-8 py-10 text-cream shadow-lg md:-translate-y-4"
-                  : "flex flex-col rounded-2xl border border-mist bg-cream px-8 py-10"
+                  ? "relative flex flex-col overflow-hidden rounded-2xl bg-navy px-8 py-10 text-cream shadow-lg md:-translate-y-4"
+                  : "relative flex flex-col overflow-hidden rounded-2xl border border-mist bg-cream px-8 py-10"
               }
             >
+              <ServicePhoto src={service.photo} highlighted={service.highlighted} />
+
               {service.badge && (
                 <span className="mb-4 inline-block w-fit rounded-full bg-gold px-3 py-1 text-xs font-bold uppercase tracking-wide text-navy">
                   {service.badge}
