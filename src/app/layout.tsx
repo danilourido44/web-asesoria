@@ -28,7 +28,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Confidyx — El fin del agujero negro documental",
     description:
-      "Recupera 15-20 horas al mes de trabajo administrativo. Revisión humana en todo lo que importa. Más clientes, con el mismo equipo.",
+      "Recupera hasta 60 horas al mes de trabajo administrativo. Revisión humana en todo lo que importa. Más clientes, con el mismo equipo.",
     locale: "es_ES",
     type: "website",
     siteName: "Confidyx",

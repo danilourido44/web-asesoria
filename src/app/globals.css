@@ -27,6 +27,12 @@ html {
   scroll-behavior: smooth;
 }
 
+/* Evita que el header sticky tape el inicio de cada sección al navegar
+   por anclas (#problema, #proceso, #servicios, #nosotros, #contacto). */
+[id] {
+  scroll-margin-top: 5.5rem;
+}
+
 body {
   background: var(--color-cream);
   color: var(--color-ink);

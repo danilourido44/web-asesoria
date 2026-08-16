@@ -5,7 +5,7 @@ const PILLARS = [
     title: "Recuperamos las horas que hoy se van en papeleo",
     points: [
       "Bandeja Cero Documentos elimina la descarga y clasificación manual — tu equipo solo revisa las excepciones que de verdad lo necesitan.",
-      "Un despacho tipo recupera entre 15 y 20 horas al mes de trabajo administrativo no facturable.",
+      "Un despacho tipo recupera entre 25 y 60 horas al mes de trabajo administrativo no facturable, según el servicio implantado.",
     ],
   },
   {

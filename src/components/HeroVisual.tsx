@@ -44,7 +44,7 @@ const PIPELINE = [
 ];
 
 const STATS = [
-  { value: "15–20h", label: "al mes" },
+  { value: "25–60h", label: "al mes" },
   { value: "<30 días", label: "puesta en marcha" },
   { value: "100%", label: "revisión humana" },
 ];
