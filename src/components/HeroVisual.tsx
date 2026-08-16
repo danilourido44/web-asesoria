@@ -90,6 +90,18 @@ export function HeroVisual() {
                 fill="#2E9E6B"
               />
             ))}
+            {/* Punto que recorre la línea sin parar, en bucle — el efecto "gif" */}
+            <path
+              id="confidyx-spark-path"
+              d="M6,55 L63,46 L120,50 L177,30 L234,34 L294,14"
+              fill="none"
+              stroke="none"
+            />
+            <circle r="4.5" fill="#F7F9F7" style={{ filter: "drop-shadow(0 0 5px #2E9E6B)" }}>
+              <animateMotion dur="4s" repeatCount="indefinite">
+                <mpath href="#confidyx-spark-path" />
+              </animateMotion>
+            </circle>
           </svg>
           <div className="mt-1 flex justify-between text-[10px] text-cream/35">
             {["Ene", "Feb", "Mar", "Abr", "May", "Jun"].map((m) => (
@@ -99,10 +111,11 @@ export function HeroVisual() {
         </div>
 
         <ul className="mt-5 space-y-2.5">
-          {PIPELINE.map((item) => (
+          {PIPELINE.map((item, i) => (
             <li
               key={item.name}
-              className="flex items-center gap-3 rounded-xl bg-cream/[0.04] px-3.5 py-3"
+              className="animate-scan flex items-center gap-3 rounded-xl px-3.5 py-3"
+              style={{ animationDelay: `${i * 2}s` }}
             >
               <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-cream/10 text-cream">
                 <svg viewBox="0 0 24 24" className="h-4 w-4">

@@ -73,9 +73,28 @@ body {
   animation: confidyx-draw 1.8s ease-out 0.2s both;
 }
 
+/* Barrido secuencial sobre las filas del pipeline (efecto "en proceso") */
+@keyframes confidyx-scan {
+  0%,
+  100% {
+    background-color: rgb(247 249 247 / 0.04);
+  }
+  12% {
+    background-color: rgb(247 249 247 / 0.12);
+  }
+  28% {
+    background-color: rgb(247 249 247 / 0.04);
+  }
+}
+
+.animate-scan {
+  animation: confidyx-scan 6s ease-in-out infinite;
+}
+
 @media (prefers-reduced-motion: reduce) {
   .animate-float,
-  .animate-draw {
+  .animate-draw,
+  .animate-scan {
     animation: none;
   }
 }

@@ -2,25 +2,6 @@ import Image from "next/image";
 
 const SERVICES = [
   {
-    badge: null,
-    name: "Bandeja Cero Documentos",
-    photo: "/photos/bandeja-documentos.jpeg",
-    description:
-      "Recibe, ordena, renombra, clasifica y registra automáticamente facturas, nóminas y justificantes de email, WhatsApp y carpetas.",
-    roi: "25–60 h liberadas/mes",
-    roiDetail: "~750–1.800 € de capacidad operativa recuperada",
-    bullets: [
-      "Cada factura que hoy alguien descarga, renombra y coloca a mano se convierte en un expediente organizado sin intervención administrativa.",
-      "Liberamos horas para atender más clientes o dedicar tiempo a servicios de mayor valor.",
-      "Recuperas capacidad sin contratar a otra persona.",
-    ],
-    bestWhen:
-      "Tenéis muchos emails, carpetas desordenadas y gente dedicada a introducir datos a mano.",
-    setup: "4.000–8.000 €",
-    monthly: "600–1.200 €/mes",
-    highlighted: false,
-  },
-  {
     badge: "El punto de partida",
     name: "Expediente Completo 30D",
     photo: "/photos/expediente-completo.jpeg",
@@ -38,6 +19,25 @@ const SERVICES = [
     setup: "3.000–6.000 €",
     monthly: "500–1.000 €/mes",
     highlighted: true,
+  },
+  {
+    badge: null,
+    name: "Bandeja Cero Documentos",
+    photo: "/photos/bandeja-documentos.jpeg",
+    description:
+      "Recibe, ordena, renombra, clasifica y registra automáticamente facturas, nóminas y justificantes de email, WhatsApp y carpetas.",
+    roi: "25–60 h liberadas/mes",
+    roiDetail: "~750–1.800 € de capacidad operativa recuperada",
+    bullets: [
+      "Cada factura que hoy alguien descarga, renombra y coloca a mano se convierte en un expediente organizado sin intervención administrativa.",
+      "Liberamos horas para atender más clientes o dedicar tiempo a servicios de mayor valor.",
+      "Recuperas capacidad sin contratar a otra persona.",
+    ],
+    bestWhen:
+      "Tenéis muchos emails, carpetas desordenadas y gente dedicada a introducir datos a mano.",
+    setup: "4.000–8.000 €",
+    monthly: "600–1.200 €/mes",
+    highlighted: false,
   },
   {
     badge: null,
@@ -62,16 +62,16 @@ const SERVICES = [
 
 const COMPARISON_ROWS = [
   {
-    service: "Bandeja Cero Documentos",
-    roi: "25–60 h/mes",
-    facilidad: "Alta",
-    valor: "Alta",
-  },
-  {
     service: "Expediente Completo 30D",
     roi: "20–40 h/mes",
     facilidad: "Muy alta",
     valor: "Muy alta",
+  },
+  {
+    service: "Bandeja Cero Documentos",
+    roi: "25–60 h/mes",
+    facilidad: "Alta",
+    valor: "Alta",
   },
   {
     service: "Cierre Fiscal Blindado",
