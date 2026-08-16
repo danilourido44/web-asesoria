@@ -37,3 +37,39 @@ body {
   background: var(--color-gold);
   color: var(--color-navy);
 }
+
+/* Panel animado de la cabecera: flotación sutil + gráfico que se dibuja */
+@keyframes confidyx-float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+.animate-float {
+  animation: confidyx-float 6s ease-in-out infinite;
+}
+
+@keyframes confidyx-draw {
+  from {
+    stroke-dashoffset: 300;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+.animate-draw {
+  stroke-dasharray: 300;
+  animation: confidyx-draw 1.8s ease-out 0.2s both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-float,
+  .animate-draw {
+    animation: none;
+  }
+}

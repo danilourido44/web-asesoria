@@ -1,14 +1,10 @@
-const STATS = [
-  { value: "15–20h", label: "recuperadas al mes por despacho" },
-  { value: "<30 días", label: "para poner el proceso en marcha" },
-  { value: "100%", label: "revisión humana en lo sensible" },
-];
+import { HeroVisual } from "./HeroVisual";
 
 export function Hero() {
   return (
     <section id="inicio" className="px-6 pt-16 pb-20 md:pt-24 md:pb-28">
-      <div className="mx-auto max-w-6xl">
-        <div className="max-w-3xl">
+      <div className="mx-auto grid max-w-6xl items-center gap-14 lg:grid-cols-[1.05fr_0.95fr] lg:gap-10">
+        <div className="max-w-xl">
           <p className="text-sm font-semibold uppercase tracking-wide text-muted">
             Para despachos de asesoría fiscal, contable y laboral
           </p>
@@ -41,16 +37,7 @@ export function Hero() {
           </div>
         </div>
 
-        <div className="mt-16 grid grid-cols-1 gap-px overflow-hidden rounded-2xl bg-navy/10 sm:grid-cols-3">
-          {STATS.map((stat) => (
-            <div key={stat.label} className="bg-navy px-6 py-8">
-              <div className="font-display text-3xl font-bold text-accent">
-                {stat.value}
-              </div>
-              <div className="mt-2 text-sm text-cream/70">{stat.label}</div>
-            </div>
-          ))}
-        </div>
+        <HeroVisual />
       </div>
     </section>
   );

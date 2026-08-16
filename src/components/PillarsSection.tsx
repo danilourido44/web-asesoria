@@ -1,5 +1,6 @@
 const PILLARS = [
   {
+    index: "01",
     value: "Velocidad",
     title: "Recuperamos las horas que hoy se van en papeleo",
     points: [
@@ -8,6 +9,7 @@ const PILLARS = [
     ],
   },
   {
+    index: "02",
     value: "Confianza",
     title: "Revisión humana en todo lo que importa",
     points: [
@@ -16,6 +18,7 @@ const PILLARS = [
     ],
   },
   {
+    index: "03",
     value: "Transformación",
     title: "Más clientes, sin contratar más gente",
     points: [
@@ -42,8 +45,14 @@ export function PillarsSection() {
           {PILLARS.map((pillar) => (
             <div
               key={pillar.title}
-              className="flex flex-col rounded-2xl border border-mist bg-cream p-7"
+              className="relative flex flex-col overflow-hidden rounded-2xl border border-mist bg-cream p-7"
             >
+              <span
+                className="font-display pointer-events-none absolute -right-2 -top-6 text-8xl font-bold text-navy/5"
+                aria-hidden="true"
+              >
+                {pillar.index}
+              </span>
               <span className="text-xs font-bold uppercase tracking-wider text-gold">
                 {pillar.value}
               </span>

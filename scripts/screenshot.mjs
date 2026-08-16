@@ -2,15 +2,16 @@
 // de un selector concreto) contra un servidor ya en marcha.
 //
 // Uso:
-//   node scripts/screenshot.mjs <url> <archivo-salida.png> [selector]
+//   node scripts/screenshot.mjs <url> <archivo-salida.png> [selector] [espera-ms]
 //
 // Ejemplo:
 //   node scripts/screenshot.mjs http://localhost:3000 shots/home.png
 //   node scripts/screenshot.mjs http://localhost:3000 shots/servicios.png "#servicios"
+//   node scripts/screenshot.mjs http://localhost:3000 shots/hero.png "#inicio" 2500
 
 import { chromium } from "playwright";
 
-const [, , url, outPath, selector] = process.argv;
+const [, , url, outPath, selector, waitMs] = process.argv;
 
 if (!url || !outPath) {
   console.error("Uso: node scripts/screenshot.mjs <url> <salida.png> [selector]");
@@ -27,6 +28,10 @@ page.on("console", (msg) => {
 page.on("pageerror", (err) => errors.push(String(err)));
 
 await page.goto(url, { waitUntil: "networkidle" });
+
+if (waitMs) {
+  await page.waitForTimeout(Number(waitMs));
+}
 
 if (selector) {
   await page.locator(selector).screenshot({ path: outPath });

@@ -39,26 +39,26 @@ export function ProcessSection() {
           </h2>
         </div>
 
-        <div className="mt-14 grid gap-8 md:grid-cols-4">
-          {STEPS.map((item, i) => (
-            <div key={item.step} className="relative">
-              <div className="flex h-11 w-11 items-center justify-center rounded-full bg-gold font-display text-lg font-bold text-navy">
-                {item.step}
+        <div className="relative mt-14">
+          <div
+            className="pointer-events-none absolute left-6 right-6 top-6 hidden border-t-2 border-dashed border-cream/15 md:block"
+            aria-hidden="true"
+          />
+          <div className="grid gap-10 md:grid-cols-4 md:gap-8">
+            {STEPS.map((item) => (
+              <div key={item.step} className="relative">
+                <div className="relative flex h-12 w-12 items-center justify-center rounded-full bg-gold font-display text-xl font-bold text-navy ring-8 ring-navy">
+                  {item.step}
+                </div>
+                <h3 className="mt-5 font-display text-lg font-bold">
+                  {item.title}
+                </h3>
+                <p className="mt-2 text-sm leading-6 text-cream/70">
+                  {item.description}
+                </p>
               </div>
-              <h3 className="mt-5 font-display text-lg font-bold">
-                {item.title}
-              </h3>
-              <p className="mt-2 text-sm leading-6 text-cream/70">
-                {item.description}
-              </p>
-              {i < STEPS.length - 1 && (
-                <div
-                  className="absolute right-[-1rem] top-5 hidden h-px w-8 bg-cream/20 md:block"
-                  aria-hidden="true"
-                />
-              )}
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </div>
     </section>
