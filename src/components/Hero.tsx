@@ -53,7 +53,19 @@ const DATA_CHIPS = [
 
 export function Hero() {
   return (
-    <section id="inicio" className="px-6 pt-16 pb-20 md:pt-24 md:pb-28">
+    <section id="inicio" className="relative px-6 pt-16 pb-20 md:pt-24 md:pb-28">
+      {/* Halo difuminado compartido: une visualmente el panel de proceso con
+          el texto ("Para despachos de asesoría fiscal...") en vez de dejar
+          el panel como una tarjeta aislada sobre fondo en blanco. */}
+      <div
+        className="pointer-events-none absolute inset-0 -z-10 hidden overflow-hidden lg:block"
+        aria-hidden="true"
+      >
+        <div className="absolute left-[4%] top-[2%] h-[24rem] w-[24rem] rounded-full bg-gold/40 blur-[80px]" />
+        <div className="absolute right-[6%] top-0 h-[28rem] w-[28rem] rounded-full bg-accent/25 blur-[90px]" />
+        <div className="absolute bottom-[-4rem] right-[16%] h-[20rem] w-[20rem] rounded-full bg-navy/30 blur-[70px]" />
+      </div>
+
       <div className="mx-auto grid max-w-6xl items-center gap-14 lg:grid-cols-[1.05fr_0.95fr] lg:gap-10">
         <div className="relative max-w-xl">
           <HeroBackdrop />
