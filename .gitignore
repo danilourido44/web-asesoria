@@ -39,6 +39,9 @@ yarn-error.log*
 # capturas de QA visual (Playwright) — no versionar
 /shots
 
+# exportaciones de vídeo/GIF (assets de marketing, no código fuente) — no versionar
+/exports
+
 # typescript
 *.tsbuildinfo
 next-env.d.ts

@@ -56,7 +56,10 @@ export function HeroVisual() {
         className="absolute -inset-6 -z-10 rounded-[2rem] bg-gold/20 blur-3xl"
         aria-hidden="true"
       />
-      <div className="animate-float rounded-3xl bg-navy p-6 shadow-2xl shadow-navy/30 sm:p-7">
+      <div
+        id="hero-panel"
+        className="animate-float rounded-3xl bg-navy p-6 shadow-2xl shadow-navy/30 sm:p-7"
+      >
         <div className="flex items-center justify-between">
           <span className="text-xs font-semibold uppercase tracking-wide text-cream/50">
             Panel de proceso
