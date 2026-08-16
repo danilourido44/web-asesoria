@@ -1,57 +1,69 @@
-type LogoVariant = "principal" | "invertida" | "avatar";
+import Image from "next/image";
 
-/**
- * Icono de documento con esquina doblada + check interior, recreado en SVG
- * a partir del manual de identidad Confidyx. El check es siempre verde
- * (#2E9E6B); el documento y el wordmark cambian de color según el fondo.
- */
+type LockupVariant = "principal" | "invertida";
+
+// Logotipo oficial completo (icono + wordmark "CONFIDYX"), tal cual el
+// manual de identidad. "principal" usa el archivo con fondo transparente
+// (funciona sobre cualquier fondo claro); "invertida" trae el fondo navy
+// ya incluido, para secciones oscuras.
+const LOCKUP_SRC: Record<LockupVariant, string> = {
+  principal: "/logo/confidyx-transparente.png",
+  invertida: "/logo/confidyx-invertida.png",
+};
+
 export function Logo({
   variant = "principal",
+  width = 160,
   className = "",
 }: {
-  variant?: LogoVariant;
+  variant?: LockupVariant;
+  width?: number;
   className?: string;
 }) {
-  const isInverted = variant === "invertida";
-  const inkClass = isInverted ? "text-cream" : "text-navy";
+  return (
+    <Image
+      src={LOCKUP_SRC[variant]}
+      alt="Confidyx"
+      width={512}
+      height={512}
+      style={{ width, height: "auto" }}
+      className={className}
+      priority
+    />
+  );
+}
 
+/**
+ * Versión compacta para barras horizontales (header, botones): el icono
+ * oficial en avatar + el wordmark maquetado en Space Grotesk, en vez del
+ * lockup cuadrado completo (que a alturas de navbar queda demasiado
+ * pequeño para leerse).
+ */
+export function LogoMark({
+  inverted = false,
+  className = "",
+}: {
+  inverted?: boolean;
+  className?: string;
+}) {
   return (
     <span className={`inline-flex items-center gap-2.5 ${className}`}>
-      <svg
-        viewBox="0 0 64 64"
-        className={`h-8 w-8 shrink-0 ${inkClass}`}
-        fill="none"
+      <Image
+        src="/logo/confidyx-avatar.png"
+        alt=""
+        width={696}
+        height={696}
+        className="h-8 w-8 shrink-0 rounded-md"
         aria-hidden="true"
+        priority
+      />
+      <span
+        className={`font-display text-lg font-bold tracking-tight ${
+          inverted ? "text-cream" : "text-navy"
+        }`}
       >
-        <path
-          d="M14 4H38L50 16V60H14V4Z"
-          stroke="currentColor"
-          strokeWidth="5"
-          strokeLinejoin="round"
-          strokeLinecap="round"
-        />
-        <path
-          d="M38 4V16H50"
-          stroke="currentColor"
-          strokeWidth="5"
-          strokeLinejoin="round"
-          strokeLinecap="round"
-        />
-        <path
-          d="M20 33L28 41L45 22"
-          stroke="#2E9E6B"
-          strokeWidth="6"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        />
-      </svg>
-      {variant !== "avatar" && (
-        <span
-          className={`font-display text-lg font-bold tracking-tight ${inkClass}`}
-        >
-          CONFIDYX
-        </span>
-      )}
+        CONFIDYX
+      </span>
       <span className="sr-only">Confidyx</span>
     </span>
   );

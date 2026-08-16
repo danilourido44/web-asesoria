@@ -17,7 +17,7 @@ export function Footer() {
       <div className="mx-auto max-w-6xl">
         <div className="grid gap-10 md:grid-cols-[1.3fr_1fr_1fr]">
           <div>
-            <Logo variant="invertida" />
+            <Logo variant="invertida" width={170} />
             <p className="mt-4 max-w-xs text-sm leading-6 text-cream/60">
               El fin del agujero negro documental. Vendemos tiempo liberado y
               tranquilidad, no inteligencia artificial.
