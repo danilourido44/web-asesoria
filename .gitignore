@@ -36,6 +36,9 @@ yarn-error.log*
 # vercel
 .vercel
 
+# capturas de QA visual (Playwright) — no versionar
+/shots
+
 # typescript
 *.tsbuildinfo
 next-env.d.ts
