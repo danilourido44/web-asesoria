@@ -91,10 +91,26 @@ body {
   animation: confidyx-scan 6s ease-in-out infinite;
 }
 
+/* Deriva lenta para los chips de datos flotantes del fondo del hero */
+@keyframes confidyx-drift {
+  0%,
+  100% {
+    transform: translateY(0) rotate(var(--drift-rot, -2deg));
+  }
+  50% {
+    transform: translateY(-10px) rotate(var(--drift-rot, -2deg));
+  }
+}
+
+.animate-drift {
+  animation: confidyx-drift 8s ease-in-out infinite;
+}
+
 @media (prefers-reduced-motion: reduce) {
   .animate-float,
   .animate-draw,
-  .animate-scan {
+  .animate-scan,
+  .animate-drift {
     animation: none;
   }
 }
