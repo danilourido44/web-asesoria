@@ -1,9 +1,32 @@
 const PAIN_POINTS = [
-  "La documentación entra por todas partes: email, WhatsApp, carpetas compartidas, papel escaneado a última hora.",
-  "Tu equipo pierde horas cada semana descargando, renombrando y clasificando archivos a mano.",
-  "Perseguís manualmente a los clientes que no han mandado la nómina o el justificante que falta.",
-  "Los vencimientos viven en hojas de cálculo sueltas y en la memoria de quien lleva más tiempo en la casa.",
-  "Cuando esa persona coge vacaciones — o simplemente tiene un mal día — algo se cuela por las rendijas.",
+  {
+    before: "La documentación entra ",
+    emphasis: "por todas partes",
+    after:
+      ": email, WhatsApp, carpetas compartidas, papel escaneado a última hora.",
+  },
+  {
+    before: "Tu equipo ",
+    emphasis: "pierde horas cada semana",
+    after: " descargando, renombrando y clasificando archivos a mano.",
+  },
+  {
+    before: "Perseguís ",
+    emphasis: "manualmente",
+    after:
+      " a los clientes que no han mandado la nómina o el justificante que falta.",
+  },
+  {
+    before: "Los vencimientos viven en hojas de cálculo sueltas y ",
+    emphasis: "en la memoria de quien lleva más tiempo en la casa",
+    after: ".",
+  },
+  {
+    before:
+      "Cuando esa persona coge vacaciones — o simplemente tiene un mal día — algo ",
+    emphasis: "se cuela por las rendijas",
+    after: ".",
+  },
 ];
 
 export function ProblemSection() {
@@ -28,7 +51,7 @@ export function ProblemSection() {
         <ul className="space-y-4">
           {PAIN_POINTS.map((point) => (
             <li
-              key={point}
+              key={point.emphasis}
               className="flex items-start gap-4 rounded-xl bg-cream px-5 py-4 shadow-sm"
             >
               <span className="mt-1 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-navy/10">
@@ -41,8 +64,10 @@ export function ProblemSection() {
                   />
                 </svg>
               </span>
-              <span className="text-[15px] leading-6 text-ink/80">
-                {point}
+              <span className="text-[15px] leading-6 text-ink/70">
+                {point.before}
+                <span className="font-bold text-gold">{point.emphasis}</span>
+                {point.after}
               </span>
             </li>
           ))}

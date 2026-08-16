@@ -9,7 +9,7 @@ export function Hero() {
             Para despachos de asesoría fiscal, contable y laboral
           </p>
           <h1 className="mt-4 font-display text-4xl font-bold leading-[1.1] text-navy sm:text-5xl md:text-6xl">
-            El fin del agujero negro documental.
+            Fin del agujero documental.
           </h1>
           <p className="mt-6 max-w-2xl text-lg leading-8 text-ink/80">
             Ayudamos a despachos de 5 a 30 empleados a atender más clientes
