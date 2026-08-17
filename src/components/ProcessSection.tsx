@@ -1,9 +1,9 @@
 const STEPS = [
   {
-    step: "1",
-    title: "Diagnóstico Documental Express",
+    step: "01",
+    title: "Diagnóstico",
     description:
-      "30 minutos para ver juntos cuántas horas al mes se están yendo en tu agujero negro documental, y qué número real hay detrás.",
+      "30 minutos para ver cuántas horas al mes se pierden en tu agujero documental.",
     icon: (
       <>
         <circle cx="11" cy="11" r="6.5" stroke="currentColor" strokeWidth="1.8" fill="none" />
@@ -12,10 +12,10 @@ const STEPS = [
     ),
   },
   {
-    step: "2",
-    title: "Diseño del proceso",
+    step: "02",
+    title: "Diseño",
     description:
-      "Definimos qué necesita tu despacho: Bandeja Cero Documentos, Expediente Completo 30D, Cierre Fiscal Blindado — o los tres.",
+      "Definimos qué necesita tu despacho: uno de los tres servicios, o los tres juntos.",
     icon: (
       <path
         d="M12 3L3 8L12 13L21 8L12 3Z M3 13L12 18L21 13 M3 18L12 23L21 18"
@@ -28,10 +28,10 @@ const STEPS = [
     ),
   },
   {
-    step: "3",
-    title: "Puesta en marcha",
+    step: "03",
+    title: "Implantación",
     description:
-      "Implantación en menos de 30 días, con visibilidad total del proceso desde el primer día. Nada de cajas negras.",
+      "En menos de 30 días, con visibilidad total desde el primer día.",
     icon: (
       <>
         <rect x="3" y="4.5" width="18" height="17" rx="2.5" stroke="currentColor" strokeWidth="1.8" fill="none" />
@@ -41,10 +41,10 @@ const STEPS = [
     ),
   },
   {
-    step: "4",
-    title: "Revisión humana continua",
+    step: "04",
+    title: "Revisión",
     description:
-      "Automatizamos lo repetitivo. Las decisiones sensibles las revisa siempre alguien de tu equipo.",
+      "Automatizamos lo repetitivo. Las decisiones sensibles las revisa siempre tu equipo.",
     icon: (
       <>
         <path
@@ -60,9 +60,31 @@ const STEPS = [
   },
 ];
 
+function ConnectorArcs() {
+  return (
+    <svg
+      className="pointer-events-none absolute inset-x-0 top-0 hidden h-24 w-full sm:block"
+      viewBox="0 0 100 28"
+      preserveAspectRatio="none"
+      aria-hidden="true"
+    >
+      <defs>
+        <linearGradient id="processArc" x1="0" y1="0" x2="1" y2="0">
+          <stop offset="0%" stopColor="#D9A441" stopOpacity="0" />
+          <stop offset="50%" stopColor="#D9A441" stopOpacity="0.65" />
+          <stop offset="100%" stopColor="#D9A441" stopOpacity="0" />
+        </linearGradient>
+      </defs>
+      <path d="M12.5 24 Q 25 2 37.5 24" stroke="url(#processArc)" strokeWidth="0.7" fill="none" />
+      <path d="M37.5 24 Q 50 2 62.5 24" stroke="url(#processArc)" strokeWidth="0.7" fill="none" />
+      <path d="M62.5 24 Q 75 2 87.5 24" stroke="url(#processArc)" strokeWidth="0.7" fill="none" />
+    </svg>
+  );
+}
+
 export function ProcessSection() {
   return (
-    <section id="proceso" className="relative overflow-hidden bg-navy px-6 py-20 text-cream md:py-28">
+    <section id="proceso" className="relative overflow-hidden bg-navy px-6 py-16 text-cream md:py-20">
       <div
         className="pointer-events-none absolute inset-0 -z-0 hidden lg:block"
         aria-hidden="true"
@@ -72,69 +94,40 @@ export function ProcessSection() {
       </div>
 
       <div className="relative mx-auto max-w-6xl">
-        <div className="max-w-2xl">
+        <div className="max-w-2xl text-center md:mx-auto md:text-center">
           <p className="text-sm font-semibold uppercase tracking-wide text-cream/60">
             Cómo funciona
           </p>
-          <h2 className="mt-4 font-display text-3xl font-bold leading-tight md:text-4xl">
-            De la primera llamada a un proceso bajo control, en menos de 30
-            días
+          <h2 className="mt-3 font-display text-3xl font-bold leading-tight md:text-4xl">
+            De la primera llamada a un proceso bajo control, en menos de 30 días
           </h2>
         </div>
 
-        <div className="relative mt-16">
-          <div
-            className="absolute left-8 top-2 bottom-2 hidden w-px bg-gradient-to-b from-transparent via-cream/25 to-transparent md:left-1/2 md:block md:-translate-x-1/2"
-            aria-hidden="true"
-          />
+        <div className="relative mx-auto mt-20 max-w-5xl pt-8">
+          <ConnectorArcs />
 
-          <div className="space-y-10 md:space-y-4">
-            {STEPS.map((item, i) => {
-              const isEven = i % 2 === 0;
-              return (
-                <div
-                  key={item.step}
-                  className="relative grid items-center gap-x-8 gap-y-4 md:grid-cols-[1fr_auto_1fr] md:py-8"
-                >
-                  <div
-                    className={`order-1 flex justify-start md:order-2 md:justify-center`}
-                  >
-                    <div className="relative shrink-0">
-                      <div className="flex h-16 w-16 items-center justify-center rounded-full bg-gold text-navy shadow-lg shadow-black/20 ring-8 ring-navy">
-                        <svg viewBox="0 0 24 24" className="h-7 w-7">
-                          {item.icon}
-                        </svg>
-                      </div>
-                      <span className="absolute -bottom-1 -right-1 flex h-6 w-6 items-center justify-center rounded-full bg-navy text-xs font-bold text-gold ring-2 ring-gold">
-                        {item.step}
-                      </span>
-                    </div>
-                  </div>
-
-                  <div
-                    className={`order-2 pl-[4.75rem] md:pl-0 ${
-                      isEven
-                        ? "md:order-1 md:pr-4 md:text-right"
-                        : "md:order-3 md:pl-4 md:text-left"
-                    }`}
-                  >
-                    <h3 className="font-display text-lg font-bold">
-                      {item.title}
-                    </h3>
-                    <p className="mt-2 text-sm leading-6 text-cream/70">
-                      {item.description}
-                    </p>
-                  </div>
-
-                  <div
-                    className={`hidden md:block ${
-                      isEven ? "md:order-3" : "md:order-1"
-                    }`}
-                    aria-hidden="true"
-                  />
+          <div className="grid grid-cols-2 gap-x-4 gap-y-14 sm:grid-cols-4 sm:gap-x-0">
+            {STEPS.map((item) => (
+              <div key={item.step} className="relative flex flex-col items-center px-2 text-center">
+                <div className="relative z-10 flex h-16 w-16 items-center justify-center rounded-full bg-navy text-gold shadow-[0_0_0_4px_rgba(217,164,65,0.9),0_10px_25px_rgba(0,0,0,0.45)]">
+                  <svg viewBox="0 0 24 24" className="h-7 w-7">
+                    {item.icon}
+                  </svg>
                 </div>
-              );
-            })}
+
+                <div className="relative -mt-4 flex w-full max-w-[10.5rem] flex-col items-center rounded-2xl border border-gold/25 bg-cream/[0.05] px-3 pb-5 pt-7">
+                  <span className="absolute -top-3 left-1/2 -translate-x-1/2 rounded-md bg-gold px-2.5 py-0.5 font-display text-xs font-bold text-navy shadow-md">
+                    {item.step}
+                  </span>
+                  <h3 className="font-display text-sm font-bold uppercase tracking-wide text-gold">
+                    {item.title}
+                  </h3>
+                  <p className="mt-2 text-xs leading-5 text-cream/65">
+                    {item.description}
+                  </p>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </div>

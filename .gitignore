@@ -49,3 +49,6 @@ next-env.d.ts
 
 # preferencias personales de Claude Code para este proyecto — no versionar
 .claude/settings.local.json
+
+# códigos de recuperación / secretos personales — nunca subir a git
+/Codes de vercel/

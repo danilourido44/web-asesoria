@@ -1,7 +1,10 @@
+import Image from "next/image";
+
 const PILLARS = [
   {
     index: "01",
     value: "Velocidad",
+    photo: "/photos/pillar-velocidad.jpg",
     title: "Recuperamos las horas que hoy se van en papeleo",
     points: [
       "Bandeja Cero Documentos elimina la descarga y clasificación manual — tu equipo solo revisa las excepciones que de verdad lo necesitan.",
@@ -11,6 +14,7 @@ const PILLARS = [
   {
     index: "02",
     value: "Confianza",
+    photo: "/photos/pillar-confianza.jpg",
     title: "Revisión humana en todo lo que importa",
     points: [
       "Las decisiones sensibles — declaraciones, envíos, cierres — siempre pasan por una persona de tu equipo. Nunca se automatizan a ciegas.",
@@ -20,6 +24,7 @@ const PILLARS = [
   {
     index: "03",
     value: "Transformación",
+    photo: "/photos/pillar-transformacion.jpg",
     title: "Más clientes, sin contratar más gente",
     points: [
       "Expediente Completo 30D hace que los expedientes se completen antes, sin perseguir manualmente a cada cliente.",
@@ -27,6 +32,28 @@ const PILLARS = [
     ],
   },
 ];
+
+function PillarPhoto({ src }: { src: string }) {
+  return (
+    <div className="relative -mx-7 -mt-7 mb-6 h-36 overflow-hidden">
+      <Image
+        src={src}
+        alt=""
+        fill
+        sizes="(max-width: 768px) 100vw, 33vw"
+        className="object-cover grayscale-[10%] saturate-[0.85]"
+      />
+      <div
+        className="absolute inset-0 bg-navy/25"
+        aria-hidden="true"
+      />
+      <div
+        className="absolute inset-0 bg-gradient-to-t from-cream via-cream/15 to-transparent"
+        aria-hidden="true"
+      />
+    </div>
+  );
+}
 
 export function PillarsSection() {
   return (
@@ -47,13 +74,15 @@ export function PillarsSection() {
               key={pillar.title}
               className="relative flex flex-col overflow-hidden rounded-2xl border border-mist bg-cream p-7"
             >
+              <PillarPhoto src={pillar.photo} />
+
               <span
-                className="font-display pointer-events-none absolute -right-2 -top-6 text-8xl font-bold text-navy/5"
+                className="font-display pointer-events-none absolute -right-2 top-24 text-8xl font-bold text-navy/5"
                 aria-hidden="true"
               >
                 {pillar.index}
               </span>
-              <span className="text-xs font-bold uppercase tracking-wider text-gold">
+              <span className="relative text-xs font-bold uppercase tracking-wider text-gold">
                 {pillar.value}
               </span>
               <h3 className="mt-3 font-display text-xl font-bold leading-snug text-navy">

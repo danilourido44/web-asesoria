@@ -6,16 +6,13 @@ const SERVICES = [
     name: "Expediente Completo 30D",
     photo: "/photos/expediente-completo.jpeg",
     description:
-      "Sabe qué debe entregar cada cliente, qué ha enviado ya y qué falta. Envía recordatorios personalizados y solo avisa a tu equipo ante una excepción.",
-    roi: "20–40 h liberadas/mes",
-    roiDetail: "menos retrasos, más expedientes procesados",
+      "Sabe qué debe entregar cada cliente, qué ha enviado y qué falta. Solo avisa a tu equipo ante una excepción.",
     bullets: [
-      "Tu equipo deja de perseguir facturas, nóminas y justificantes por email y teléfono durante semanas.",
-      "Los expedientes incompletos se convierten en expedientes listos para trabajar.",
+      "Tu equipo deja de perseguir facturas y justificantes por email y teléfono.",
+      "Los expedientes incompletos pasan a listos para trabajar.",
       "Más capacidad facturable y menos noches antes de un cierre.",
     ],
-    bestWhen:
-      "Vuestros empleados se quejan de que los clientes nunca entregan todo, o siempre tarde.",
+    bestWhen: "Los clientes nunca entregan todo, o siempre tarde.",
     setup: "3.000–6.000 €",
     monthly: "500–1.000 €/mes",
     highlighted: true,
@@ -25,16 +22,13 @@ const SERVICES = [
     name: "Bandeja Cero Documentos",
     photo: "/photos/bandeja-documentos.jpeg",
     description:
-      "Recibe, ordena, renombra, clasifica y registra automáticamente facturas, nóminas y justificantes de email, WhatsApp y carpetas.",
-    roi: "25–60 h liberadas/mes",
-    roiDetail: "~750–1.800 € de capacidad operativa recuperada",
+      "Recibe, ordena, renombra y clasifica automáticamente facturas, nóminas y justificantes de email, WhatsApp y carpetas.",
     bullets: [
-      "Cada factura que hoy alguien descarga, renombra y coloca a mano se convierte en un expediente organizado sin intervención administrativa.",
-      "Liberamos horas para atender más clientes o dedicar tiempo a servicios de mayor valor.",
+      "Cada factura se organiza sola, sin trabajo administrativo manual.",
+      "Liberas tiempo para más clientes o servicios de mayor valor.",
       "Recuperas capacidad sin contratar a otra persona.",
     ],
-    bestWhen:
-      "Tenéis muchos emails, carpetas desordenadas y gente dedicada a introducir datos a mano.",
+    bestWhen: "Hay muchos emails, carpetas desordenadas y datos a mano.",
     setup: "4.000–8.000 €",
     monthly: "600–1.200 €/mes",
     highlighted: false,
@@ -44,16 +38,13 @@ const SERVICES = [
     name: "Cierre Fiscal Blindado",
     photo: "/photos/cierre-fiscal.jpeg",
     description:
-      "Controla cada expediente desde que llega la documentación hasta que queda listo para revisión: información incompleta, tareas bloqueadas y lo que puede llegar tarde al vencimiento.",
-    roi: "1.500–5.000 €/mes",
-    roiDetail: "entre horas extra, retrabajo y riesgo evitado",
+      "Controla cada expediente desde que llega la documentación hasta que queda listo para revisión.",
     bullets: [
-      "Evitamos que los problemas aparezcan 3 días antes de una presentación, cuando ya solo quedan las horas extra.",
-      "Tu equipo recibe cada mañana una lista clara de clientes en riesgo, documentos pendientes y tareas prioritarias.",
-      "Proteges la facturación y reduces el riesgo de errores que dañen la confianza del cliente.",
+      "Detecta los problemas antes de que lleguen 3 días antes de un vencimiento.",
+      "Lista diaria de clientes en riesgo y tareas prioritarias.",
+      "Proteges la facturación y reduces errores que dañan la confianza del cliente.",
     ],
-    bestWhen:
-      "Tenéis temporadas de mucha presión, varias personas en los mismos clientes, o antecedentes de retrasos.",
+    bestWhen: "Hay temporadas de mucha presión o antecedentes de retrasos.",
     setup: "6.000–12.000 €",
     monthly: "800–1.500 €/mes",
     highlighted: false,
@@ -177,28 +168,7 @@ export function ServicesSection() {
                 {service.description}
               </p>
 
-              <div
-                className={
-                  service.highlighted
-                    ? "mt-5 rounded-xl bg-cream/[0.06] px-4 py-3"
-                    : "mt-5 rounded-xl bg-accent/[0.08] px-4 py-3"
-                }
-              >
-                <div className="font-display text-lg font-bold text-accent">
-                  {service.roi}
-                </div>
-                <div
-                  className={
-                    service.highlighted
-                      ? "mt-0.5 text-xs text-cream/60"
-                      : "mt-0.5 text-xs text-ink/60"
-                  }
-                >
-                  {service.roiDetail}
-                </div>
-              </div>
-
-              <ul className="mt-6 flex-1 space-y-3">
+              <ul className="mt-5 flex-1 space-y-3">
                 {service.bullets.map((bullet) => (
                   <li key={bullet} className="flex items-start gap-3">
                     <CheckIcon
