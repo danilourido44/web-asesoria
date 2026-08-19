@@ -13,8 +13,6 @@ const SERVICES = [
       "Más capacidad facturable y menos noches antes de un cierre.",
     ],
     bestWhen: "Los clientes nunca entregan todo, o siempre tarde.",
-    setup: "3.000–6.000 €",
-    monthly: "500–1.000 €/mes",
     highlighted: true,
   },
   {
@@ -29,8 +27,6 @@ const SERVICES = [
       "Recuperas capacidad sin contratar a otra persona.",
     ],
     bestWhen: "Hay muchos emails, carpetas desordenadas y datos a mano.",
-    setup: "4.000–8.000 €",
-    monthly: "600–1.200 €/mes",
     highlighted: false,
   },
   {
@@ -45,8 +41,6 @@ const SERVICES = [
       "Proteges la facturación y reduces errores que dañan la confianza del cliente.",
     ],
     bestWhen: "Hay temporadas de mucha presión o antecedentes de retrasos.",
-    setup: "6.000–12.000 €",
-    monthly: "800–1.500 €/mes",
     highlighted: false,
   },
 ];
@@ -205,49 +199,31 @@ export function ServicesSection() {
               <div
                 className={
                   service.highlighted
-                    ? "mt-6 flex items-baseline justify-between border-t border-cream/10 pt-5"
-                    : "mt-6 flex items-baseline justify-between border-t border-mist pt-5"
+                    ? "mt-6 border-t border-cream/10 pt-5"
+                    : "mt-6 border-t border-mist pt-5"
                 }
               >
-                <div>
-                  <div
-                    className={
-                      service.highlighted
-                        ? "text-[11px] uppercase tracking-wide text-cream/50"
-                        : "text-[11px] uppercase tracking-wide text-muted"
-                    }
-                  >
-                    Puesta en marcha
-                  </div>
-                  <div className="font-display text-lg font-bold">
-                    {service.setup}
-                  </div>
-                </div>
-                <div className="text-right">
-                  <div
-                    className={
-                      service.highlighted
-                        ? "text-[11px] uppercase tracking-wide text-cream/50"
-                        : "text-[11px] uppercase tracking-wide text-muted"
-                    }
-                  >
-                    Cuota
-                  </div>
-                  <div className="font-display text-lg font-bold text-gold">
-                    {service.monthly}
-                  </div>
-                </div>
+                <p
+                  className={
+                    service.highlighted
+                      ? "text-sm leading-6 text-cream/70"
+                      : "text-sm leading-6 text-ink/70"
+                  }
+                >
+                  Precio adaptado a tu despacho. Pídenos un informe
+                  personalizado sin compromiso.
+                </p>
               </div>
 
               <a
                 href="#contacto"
                 className={
                   service.highlighted
-                    ? "mt-6 rounded-full bg-gold px-5 py-3 text-center text-sm font-semibold text-navy transition-transform hover:scale-[1.02]"
-                    : "mt-6 rounded-full border border-navy/20 px-5 py-3 text-center text-sm font-semibold text-navy transition-colors hover:bg-mist"
+                    ? "mt-5 rounded-full bg-gold px-5 py-3 text-center text-sm font-semibold text-navy transition-transform hover:scale-[1.02]"
+                    : "mt-5 rounded-full border border-navy/20 px-5 py-3 text-center text-sm font-semibold text-navy transition-colors hover:bg-mist"
                 }
               >
-                Solicitar información
+                Solicitar informe
               </a>
             </div>
           ))}
@@ -292,9 +268,10 @@ export function ServicesSection() {
         </div>
 
         <p className="mx-auto mt-6 max-w-2xl text-center text-xs leading-5 text-muted">
-          Las cifras son rangos orientativos para un despacho de 5–10
-          empleados y deben validarse con una auditoría real de horas,
-          documentos y clientes de vuestro despacho concreto.
+          Las cifras de ahorro son rangos orientativos para un despacho de
+          5–10 empleados. El precio de cada servicio se ajusta a la
+          auditoría real de horas, documentos y clientes de vuestro
+          despacho.
         </p>
       </div>
     </section>
