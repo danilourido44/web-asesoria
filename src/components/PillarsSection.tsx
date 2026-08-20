@@ -1,4 +1,9 @@
+"use client";
+
 import Image from "next/image";
+import { Reveal } from "./Reveal";
+import { StaggerText } from "./StaggerText";
+import { handleSpotlightMove } from "@/lib/spotlight";
 
 const PILLARS = [
   {
@@ -59,46 +64,48 @@ export function PillarsSection() {
   return (
     <section className="px-6 py-20 md:py-28">
       <div className="mx-auto max-w-6xl">
-        <div className="max-w-2xl">
+        <Reveal className="max-w-2xl">
           <p className="text-sm font-semibold uppercase tracking-wide text-muted">
             Por qué Confidyx
           </p>
           <h2 className="mt-4 font-display text-3xl font-bold leading-tight text-navy md:text-4xl">
-            Control, sin fichar a nadie más
+            <StaggerText text="Control, sin fichar a nadie más" />
           </h2>
-        </div>
+        </Reveal>
 
         <div className="mt-12 grid gap-6 md:grid-cols-3">
-          {PILLARS.map((pillar) => (
-            <div
-              key={pillar.title}
-              className="relative flex flex-col overflow-hidden rounded-2xl border border-mist bg-cream p-7"
-            >
-              <PillarPhoto src={pillar.photo} />
-
-              <span
-                className="font-display pointer-events-none absolute -right-2 top-24 text-8xl font-bold text-navy/5"
-                aria-hidden="true"
+          {PILLARS.map((pillar, i) => (
+            <Reveal key={pillar.title} delay={i * 100}>
+              <div
+                onMouseMove={handleSpotlightMove}
+                className="spotlight relative flex flex-col overflow-hidden rounded-2xl border border-mist bg-cream p-7 transition-transform hover:-translate-y-1"
               >
-                {pillar.index}
-              </span>
-              <span className="relative text-xs font-bold uppercase tracking-wider text-gold">
-                {pillar.value}
-              </span>
-              <h3 className="mt-3 font-display text-xl font-bold leading-snug text-navy">
-                {pillar.title}
-              </h3>
-              <ul className="mt-4 space-y-3">
-                {pillar.points.map((point) => (
-                  <li
-                    key={point}
-                    className="text-sm leading-6 text-ink/75"
-                  >
-                    {point}
-                  </li>
-                ))}
-              </ul>
-            </div>
+                <PillarPhoto src={pillar.photo} />
+
+                <span
+                  className="font-display pointer-events-none absolute -right-2 top-24 text-8xl font-bold text-navy/5"
+                  aria-hidden="true"
+                >
+                  {pillar.index}
+                </span>
+                <span className="relative text-xs font-bold uppercase tracking-wider text-gold">
+                  {pillar.value}
+                </span>
+                <h3 className="mt-3 font-display text-xl font-bold leading-snug text-navy">
+                  {pillar.title}
+                </h3>
+                <ul className="mt-4 space-y-3">
+                  {pillar.points.map((point) => (
+                    <li
+                      key={point}
+                      className="text-sm leading-6 text-ink/75"
+                    >
+                      {point}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </Reveal>
           ))}
         </div>
       </div>

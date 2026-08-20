@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { LogoMark } from "./Logo";
+import { handleSpotlightMove } from "@/lib/spotlight";
 
 const NAV_LINKS = [
   { href: "#problema", label: "El problema" },
@@ -20,7 +21,7 @@ export function Header() {
           <LogoMark />
         </a>
 
-        <nav className="hidden items-center gap-8 md:flex">
+        <nav className="hidden items-center gap-6 lg:flex xl:gap-8">
           {NAV_LINKS.map((link) => (
             <a
               key={link.href}
@@ -34,7 +35,8 @@ export function Header() {
 
         <a
           href="#contacto"
-          className="hidden rounded-full bg-gold px-5 py-2.5 text-sm font-semibold text-navy transition-transform hover:scale-[1.03] md:inline-block"
+          onMouseMove={handleSpotlightMove}
+          className="spotlight spotlight-btn hidden rounded-full bg-gold px-5 py-2.5 text-sm font-semibold text-navy transition-transform hover:scale-[1.03] lg:inline-block"
         >
           Pedir diagnóstico
         </a>
@@ -44,7 +46,7 @@ export function Header() {
           onClick={() => setOpen((v) => !v)}
           aria-expanded={open}
           aria-label="Abrir menú"
-          className="flex h-10 w-10 items-center justify-center rounded-full border border-mist md:hidden"
+          className="flex h-10 w-10 items-center justify-center rounded-full border border-mist lg:hidden"
         >
           <span className="sr-only">Menú</span>
           <svg viewBox="0 0 24 24" className="h-5 w-5 text-navy" fill="none">
@@ -68,7 +70,7 @@ export function Header() {
       </div>
 
       {open && (
-        <div className="border-t border-mist bg-cream px-6 py-4 md:hidden">
+        <div className="border-t border-mist bg-cream px-6 py-4 lg:hidden">
           <nav className="flex flex-col gap-4">
             {NAV_LINKS.map((link) => (
               <a

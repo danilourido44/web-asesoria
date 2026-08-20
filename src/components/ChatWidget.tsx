@@ -83,7 +83,7 @@ export function ChatWidget() {
         type="button"
         onClick={handleToggle}
         aria-label={open ? "Cerrar chat de Confidyx" : "Abrir chat de Confidyx"}
-        className="fixed bottom-6 right-6 z-[999] flex h-14 w-14 items-center justify-center rounded-full bg-gold text-navy shadow-lg shadow-navy/30 transition-transform hover:scale-105"
+        className="fixed bottom-4 right-4 z-[999] flex h-12 w-12 items-center justify-center rounded-full bg-gold text-navy shadow-lg shadow-navy/30 transition-transform hover:scale-105 sm:bottom-6 sm:right-6 sm:h-14 sm:w-14"
       >
         {open ? (
           <svg viewBox="0 0 24 24" className="h-6 w-6" fill="none">
@@ -110,7 +110,7 @@ export function ChatWidget() {
       </button>
 
       {open && (
-        <div className="fixed bottom-24 right-6 z-[999] flex h-[520px] max-h-[calc(100vh-8.75rem)] w-[360px] max-w-[calc(100vw-2rem)] flex-col overflow-hidden rounded-2xl bg-cream shadow-2xl shadow-navy/30 max-sm:inset-x-4 max-sm:bottom-[88px] max-sm:h-[calc(100vh-160px)] max-sm:w-auto">
+        <div className="fixed bottom-24 right-6 z-[999] flex h-[520px] max-h-[calc(100vh-8.75rem)] w-[360px] max-w-[calc(100vw-2rem)] flex-col overflow-hidden rounded-2xl bg-cream shadow-2xl shadow-navy/30 max-sm:inset-x-4 max-sm:bottom-20 max-sm:h-[calc(100vh-144px)] max-sm:w-auto">
           <div className="flex items-center justify-between bg-navy px-[18px] py-4 text-cream">
             <div>
               <div className="font-display text-[15px] font-bold">Confidyx · Asistente</div>

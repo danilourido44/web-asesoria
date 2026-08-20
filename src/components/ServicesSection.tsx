@@ -1,4 +1,9 @@
+"use client";
+
 import Image from "next/image";
+import { Reveal } from "./Reveal";
+import { StaggerText } from "./StaggerText";
+import { handleSpotlightMove } from "@/lib/spotlight";
 
 const SERVICES = [
   {
@@ -112,28 +117,29 @@ export function ServicesSection() {
   return (
     <section id="servicios" className="px-6 py-20 md:py-28">
       <div className="mx-auto max-w-6xl">
-        <div className="mx-auto max-w-2xl text-center">
+        <Reveal className="mx-auto max-w-2xl text-center">
           <p className="text-sm font-semibold uppercase tracking-wide text-muted">
             Los tres servicios
           </p>
           <h2 className="mt-4 font-display text-3xl font-bold leading-tight text-navy md:text-4xl">
-            Tres piezas para acabar con el agujero negro documental
+            <StaggerText text="Tres piezas para acabar con el agujero negro documental" />
           </h2>
           <p className="mt-4 text-base leading-7 text-ink/75">
             Pensadas para atacar el problema en el orden en que realmente
             duele. Se implantan por separado o juntas, siempre en menos de 30
             días.
           </p>
-        </div>
+        </Reveal>
 
         <div className="mt-14 grid gap-8 md:grid-cols-3 md:items-start">
-          {SERVICES.map((service) => (
+          {SERVICES.map((service, i) => (
+            <Reveal key={service.name} delay={i * 100} className="h-full">
             <div
-              key={service.name}
+              onMouseMove={handleSpotlightMove}
               className={
                 service.highlighted
-                  ? "relative flex flex-col overflow-hidden rounded-2xl bg-navy px-8 py-10 text-cream shadow-lg md:-translate-y-4"
-                  : "relative flex flex-col overflow-hidden rounded-2xl border border-mist bg-cream px-8 py-10"
+                  ? "spotlight spotlight-dark relative flex h-full flex-col overflow-hidden rounded-2xl bg-navy px-8 py-10 text-cream shadow-lg md:-translate-y-4"
+                  : "spotlight relative flex h-full flex-col overflow-hidden rounded-2xl border border-mist bg-cream px-8 py-10"
               }
             >
               <ServicePhoto src={service.photo} highlighted={service.highlighted} />
@@ -217,15 +223,17 @@ export function ServicesSection() {
 
               <a
                 href="#contacto"
+                onMouseMove={handleSpotlightMove}
                 className={
                   service.highlighted
-                    ? "mt-5 rounded-full bg-gold px-5 py-3 text-center text-sm font-semibold text-navy transition-transform hover:scale-[1.02]"
-                    : "mt-5 rounded-full border border-navy/20 px-5 py-3 text-center text-sm font-semibold text-navy transition-colors hover:bg-mist"
+                    ? "spotlight spotlight-btn mt-5 rounded-full bg-gold px-5 py-3 text-center text-sm font-semibold text-navy transition-transform hover:scale-[1.02]"
+                    : "spotlight mt-5 rounded-full border border-navy/20 px-5 py-3 text-center text-sm font-semibold text-navy transition-colors hover:bg-mist"
                 }
               >
                 Solicitar informe
               </a>
             </div>
+            </Reveal>
           ))}
         </div>
 

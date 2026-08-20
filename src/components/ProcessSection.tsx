@@ -1,3 +1,9 @@
+"use client";
+
+import { Reveal } from "./Reveal";
+import { StaggerText } from "./StaggerText";
+import { handleSpotlightMove } from "@/lib/spotlight";
+
 const STEPS = [
   {
     step: "01",
@@ -89,44 +95,49 @@ export function ProcessSection() {
         className="pointer-events-none absolute inset-0 -z-0 hidden lg:block"
         aria-hidden="true"
       >
-        <div className="absolute -left-16 top-0 h-[22rem] w-[22rem] rounded-full bg-gold/[0.12] blur-[100px]" />
-        <div className="absolute -right-10 bottom-0 h-[24rem] w-[24rem] rounded-full bg-accent/[0.10] blur-[110px]" />
+        <div className="animate-aurora absolute -left-16 top-0 h-[22rem] w-[22rem] rounded-full bg-gold/[0.12] blur-[100px]" />
+        <div className="animate-aurora-slow absolute -right-10 bottom-0 h-[24rem] w-[24rem] rounded-full bg-accent/[0.10] blur-[110px]" />
       </div>
 
       <div className="relative mx-auto max-w-6xl">
-        <div className="max-w-2xl text-center md:mx-auto md:text-center">
+        <Reveal className="max-w-2xl text-center md:mx-auto md:text-center">
           <p className="text-sm font-semibold uppercase tracking-wide text-cream/60">
             Cómo funciona
           </p>
           <h2 className="mt-3 font-display text-3xl font-bold leading-tight md:text-4xl">
-            De la primera llamada a un proceso bajo control, en menos de 30 días
+            <StaggerText text="De la primera llamada a un proceso bajo control, en menos de 30 días" />
           </h2>
-        </div>
+        </Reveal>
 
         <div className="relative mx-auto mt-20 max-w-5xl pt-8">
           <ConnectorArcs />
 
           <div className="grid grid-cols-2 gap-x-4 gap-y-14 sm:grid-cols-4 sm:gap-x-0">
-            {STEPS.map((item) => (
-              <div key={item.step} className="relative flex flex-col items-center px-2 text-center">
-                <div className="relative z-10 flex h-16 w-16 items-center justify-center rounded-full bg-navy text-gold shadow-[0_0_0_4px_rgba(217,164,65,0.9),0_10px_25px_rgba(0,0,0,0.45)]">
-                  <svg viewBox="0 0 24 24" className="h-7 w-7">
-                    {item.icon}
-                  </svg>
-                </div>
+            {STEPS.map((item, i) => (
+              <Reveal key={item.step} delay={i * 90} className="flex flex-col items-center">
+                <div className="relative flex flex-col items-center px-2 text-center">
+                  <div className="relative z-10 flex h-16 w-16 items-center justify-center rounded-full bg-navy text-gold shadow-[0_0_0_4px_rgba(217,164,65,0.9),0_10px_25px_rgba(0,0,0,0.45)]">
+                    <svg viewBox="0 0 24 24" className="h-7 w-7">
+                      {item.icon}
+                    </svg>
+                  </div>
 
-                <div className="relative -mt-4 flex w-full max-w-[10.5rem] flex-col items-center rounded-2xl border border-gold/25 bg-cream/[0.05] px-3 pb-5 pt-7">
-                  <span className="absolute -top-3 left-1/2 -translate-x-1/2 rounded-md bg-gold px-2.5 py-0.5 font-display text-xs font-bold text-navy shadow-md">
-                    {item.step}
-                  </span>
-                  <h3 className="font-display text-sm font-bold uppercase tracking-wide text-gold">
-                    {item.title}
-                  </h3>
-                  <p className="mt-2 text-xs leading-5 text-cream/65">
-                    {item.description}
-                  </p>
+                  <div
+                    onMouseMove={handleSpotlightMove}
+                    className="spotlight spotlight-dark relative -mt-4 flex w-full max-w-[10.5rem] flex-col items-center rounded-2xl border border-gold/25 bg-cream/[0.05] px-3 pb-5 pt-7 transition-colors hover:border-gold/50"
+                  >
+                    <span className="absolute -top-3 left-1/2 -translate-x-1/2 rounded-md bg-gold px-2.5 py-0.5 font-display text-xs font-bold text-navy shadow-md">
+                      {item.step}
+                    </span>
+                    <h3 className="font-display text-sm font-bold uppercase tracking-wide text-gold">
+                      {item.title}
+                    </h3>
+                    <p className="mt-2 text-xs leading-5 text-cream/65">
+                      {item.description}
+                    </p>
+                  </div>
                 </div>
-              </div>
+              </Reveal>
             ))}
           </div>
         </div>

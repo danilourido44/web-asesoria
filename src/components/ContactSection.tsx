@@ -1,8 +1,15 @@
+"use client";
+
 // NOTA PARA DESARROLLO: el formulario usa un enlace "mailto" como solución
 // provisional honesta (abre el cliente de correo del visitante) mientras no
 // haya backend. Antes de publicar en producción, sustituir el `action` por
 // una API route propia conectada a un proveedor de email/CRM real, y
 // cambiar "hola@confidyx.com" por la bandeja de entrada real de Confidyx.
+
+import { Reveal } from "./Reveal";
+import { StaggerText } from "./StaggerText";
+import { handleSpotlightMove } from "@/lib/spotlight";
+
 const CONTACT_EMAIL = "hola@confidyx.com";
 
 const FIELDS = [
@@ -19,17 +26,17 @@ export function ContactSection() {
         className="pointer-events-none absolute inset-0 -z-0 hidden lg:block"
         aria-hidden="true"
       >
-        <div className="absolute -left-10 bottom-0 h-[22rem] w-[22rem] rounded-full bg-gold/[0.12] blur-[100px]" />
-        <div className="absolute -right-16 top-0 h-[24rem] w-[24rem] rounded-full bg-accent/[0.10] blur-[110px]" />
+        <div className="animate-aurora-slow absolute -left-10 bottom-0 h-[22rem] w-[22rem] rounded-full bg-gold/[0.12] blur-[100px]" />
+        <div className="animate-aurora absolute -right-16 top-0 h-[24rem] w-[24rem] rounded-full bg-accent/[0.10] blur-[110px]" />
       </div>
 
       <div className="relative mx-auto grid max-w-6xl gap-12 md:grid-cols-2 md:items-start">
-        <div>
+        <Reveal>
           <p className="text-sm font-semibold uppercase tracking-wide text-cream/60">
             Primer paso
           </p>
           <h2 className="mt-4 font-display text-3xl font-bold leading-tight md:text-4xl">
-            Empecemos con un Diagnóstico Documental Express
+            <StaggerText text="Empecemos con un Diagnóstico Documental Express" />
           </h2>
           <p className="mt-5 max-w-md text-base leading-7 text-cream/75">
             30 minutos para ver juntos cuántas horas al mes se están yendo en
@@ -47,13 +54,15 @@ export function ContactSection() {
               </dd>
             </div>
           </dl>
-        </div>
+        </Reveal>
 
+        <Reveal delay={150}>
         <form
           action={`mailto:${CONTACT_EMAIL}`}
           method="POST"
           encType="text/plain"
-          className="rounded-2xl bg-cream p-8"
+          onMouseMove={handleSpotlightMove}
+          className="spotlight rounded-2xl bg-cream p-8"
         >
           <div className="grid gap-5 sm:grid-cols-2">
             {FIELDS.map((field) => (
@@ -95,7 +104,8 @@ export function ContactSection() {
 
           <button
             type="submit"
-            className="mt-6 w-full rounded-full bg-gold px-6 py-3.5 text-sm font-semibold text-navy transition-transform hover:scale-[1.01]"
+            onMouseMove={handleSpotlightMove}
+            className="spotlight spotlight-btn mt-6 w-full rounded-full bg-gold px-6 py-3.5 text-sm font-semibold text-navy transition-transform hover:scale-[1.01]"
           >
             Pedir mi diagnóstico gratuito
           </button>
@@ -104,6 +114,7 @@ export function ContactSection() {
             mensaje a Confidyx.
           </p>
         </form>
+        </Reveal>
       </div>
     </section>
   );

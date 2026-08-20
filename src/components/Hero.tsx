@@ -1,5 +1,10 @@
+"use client";
+
 import { HeroVisual } from "./HeroVisual";
 import { HeroBackdrop } from "./HeroBackdrop";
+import { Reveal } from "./Reveal";
+import { StaggerText } from "./StaggerText";
+import { handleSpotlightMove } from "@/lib/spotlight";
 
 // Cifras reales de Confidyx (ver confidyx_servicios_high_ticket_resumen.md),
 // mostradas como chips flotantes bajo los CTA — la parte "de datos" del
@@ -61,20 +66,20 @@ export function Hero() {
         className="pointer-events-none absolute inset-0 -z-10 hidden overflow-hidden lg:block"
         aria-hidden="true"
       >
-        <div className="absolute left-[4%] top-[2%] h-[24rem] w-[24rem] rounded-full bg-gold/40 blur-[80px]" />
-        <div className="absolute right-[6%] top-0 h-[28rem] w-[28rem] rounded-full bg-accent/25 blur-[90px]" />
-        <div className="absolute bottom-[-4rem] right-[16%] h-[20rem] w-[20rem] rounded-full bg-navy/30 blur-[70px]" />
+        <div className="animate-aurora absolute left-[4%] top-[2%] h-[24rem] w-[24rem] rounded-full bg-gold/40 blur-[80px]" />
+        <div className="animate-aurora-slow absolute right-[6%] top-0 h-[28rem] w-[28rem] rounded-full bg-accent/25 blur-[90px]" />
+        <div className="animate-aurora absolute bottom-[-4rem] right-[16%] h-[20rem] w-[20rem] rounded-full bg-navy/30 blur-[70px]" />
       </div>
 
       <div className="mx-auto grid max-w-6xl items-center gap-14 lg:grid-cols-[1.05fr_0.95fr] lg:gap-10">
         <div className="relative max-w-xl">
           <HeroBackdrop />
-          <div className="relative z-10">
+          <Reveal className="relative z-10">
             <p className="text-sm font-semibold uppercase tracking-wide text-muted">
               Para despachos de asesoría fiscal, contable y laboral
             </p>
             <h1 className="mt-4 font-display text-4xl font-bold leading-[1.1] text-navy sm:text-5xl md:text-6xl">
-              Fin del agujero documental.
+              <StaggerText text="Fin del agujero documental." step={70} />
             </h1>
             <p className="mt-6 max-w-2xl text-lg leading-8 text-ink/80">
               Ayudamos a despachos de 5 a 30 empleados a atender más clientes
@@ -82,14 +87,15 @@ export function Hero() {
               gestionar documentación y poniendo bajo control sus procesos,
               vencimientos y expedientes.
             </p>
-            <p className="mt-3 max-w-2xl text-lg font-semibold text-navy">
+            <p className="text-shine mt-3 max-w-2xl text-lg font-semibold text-navy">
               Vendemos tiempo liberado y tranquilidad. No vendemos “IA”.
             </p>
 
             <div className="mt-10 flex flex-col gap-4 sm:flex-row sm:items-center">
               <a
                 href="#contacto"
-                className="rounded-full bg-gold px-7 py-3.5 text-center text-sm font-semibold text-navy shadow-sm transition-transform hover:scale-[1.02]"
+                onMouseMove={handleSpotlightMove}
+                className="spotlight spotlight-btn rounded-full bg-gold px-7 py-3.5 text-center text-sm font-semibold text-navy shadow-sm transition-transform hover:scale-[1.02]"
               >
                 Pedir Diagnóstico Documental Express →
               </a>
@@ -119,7 +125,7 @@ export function Hero() {
                 </div>
               ))}
             </div>
-          </div>
+          </Reveal>
         </div>
 
         <HeroVisual />

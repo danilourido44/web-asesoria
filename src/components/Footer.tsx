@@ -7,13 +7,16 @@ const FOOTER_LINKS = [
   { href: "#nosotros", label: "Nosotros" },
 ];
 
-// NOTA: enlaces legales y de LinkedIn son placeholders ("#") — sustituir por
-// las páginas legales reales y el perfil de LinkedIn de Confidyx cuando existan.
-const LEGAL_LINKS = ["Aviso legal", "Política de privacidad", "Cookies"];
+// NOTA: el perfil de LinkedIn sigue pendiente.
+const LEGAL_LINKS = [
+  { label: "Aviso legal", href: "/aviso-legal" },
+  { label: "Política de privacidad", href: "/privacidad" },
+  { label: "Cookies", href: "/privacidad#cookies" },
+];
 
 export function Footer() {
   return (
-    <footer className="bg-navy px-6 pb-8 pt-16 text-cream">
+    <footer className="bg-navy px-6 pb-28 pt-16 text-cream lg:pb-10">
       <div className="mx-auto max-w-6xl">
         <div className="grid gap-10 md:grid-cols-[1.3fr_1fr_1fr]">
           <div>
@@ -47,10 +50,10 @@ export function Footer() {
               Legal
             </p>
             <ul className="mt-4 space-y-2.5">
-              {LEGAL_LINKS.map((label) => (
-                <li key={label}>
-                  <a href="#" className="text-sm text-cream/75 hover:text-gold">
-                    {label}
+              {LEGAL_LINKS.map((link) => (
+                <li key={link.label}>
+                  <a href={link.href} className="text-sm text-cream/75 hover:text-gold">
+                    {link.label}
                   </a>
                 </li>
               ))}
