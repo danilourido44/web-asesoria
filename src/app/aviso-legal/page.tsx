@@ -66,8 +66,18 @@ export default function AvisoLegalPage() {
                     Correo electrónico de contacto:{" "}
                   </dt>
                   <dd className="inline">
-                    <a href="mailto:hola@confidyx.com" className="text-accent hover:underline">
-                      hola@confidyx.com
+                    <a href="mailto:confidyx@gmail.com" className="text-accent underline underline-offset-2">
+                      confidyx@gmail.com
+                    </a>
+                  </dd>
+                </div>
+                <div>
+                  <dt className="inline font-semibold text-navy">
+                    Teléfono:{" "}
+                  </dt>
+                  <dd className="inline">
+                    <a href="tel:+34649323804" className="text-accent underline underline-offset-2">
+                      649 32 38 04
                     </a>
                   </dd>
                 </div>
@@ -76,7 +86,7 @@ export default function AvisoLegalPage() {
                   <dd className="inline">www.confidyx.com</dd>
                 </div>
               </dl>
-              <p className="mt-4 text-sm italic leading-6 text-ink/60">
+              <p className="mt-4 text-sm italic leading-6 text-ink/75">
                 Nota: si en el futuro Confidyx se constituye como sociedad
                 (SLU), estos datos identificativos (titular, NIF/CIF y, en ese
                 caso, también los datos registrales) se actualizarán el mismo

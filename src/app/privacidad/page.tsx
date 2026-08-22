@@ -67,8 +67,8 @@ export default function PrivacidadPage() {
                     Contacto para temas de privacidad:{" "}
                   </dt>
                   <dd className="inline">
-                    <a href="mailto:hola@confidyx.com" className="text-accent hover:underline">
-                      hola@confidyx.com
+                    <a href="mailto:confidyx@gmail.com" className="text-accent underline underline-offset-2">
+                      confidyx@gmail.com
                     </a>
                   </dd>
                 </div>
@@ -200,8 +200,8 @@ export default function PrivacidadPage() {
               </ul>
               <p className="mt-4 leading-7">
                 Estos derechos pueden ejercerse escribiendo a{" "}
-                <a href="mailto:hola@confidyx.com" className="text-accent hover:underline">
-                  hola@confidyx.com
+                <a href="mailto:confidyx@gmail.com" className="text-accent underline underline-offset-2">
+                  confidyx@gmail.com
                 </a>
                 , indicando el derecho que se desea ejercer y adjuntando copia
                 de un documento identificativo. Responderemos en el plazo de
@@ -218,7 +218,7 @@ export default function PrivacidadPage() {
                   href="https://www.aepd.es"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-accent hover:underline"
+                  className="text-accent underline underline-offset-2"
                 >
                   www.aepd.es
                 </a>
@@ -285,8 +285,8 @@ export default function PrivacidadPage() {
                     </tr>
                     <tr className="bg-cream">
                       <td className="px-4 py-3 font-semibold text-navy">De terceros</td>
-                      <td className="px-4 py-3 text-ink/60">No se utilizan actualmente</td>
-                      <td className="px-4 py-3 text-ink/60">—</td>
+                      <td className="px-4 py-3 text-ink/75">No se utilizan actualmente</td>
+                      <td className="px-4 py-3 text-ink/75">—</td>
                     </tr>
                   </tbody>
                 </table>

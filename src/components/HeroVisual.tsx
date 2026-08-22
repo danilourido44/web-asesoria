@@ -64,8 +64,8 @@ export function HeroVisual() {
           <span className="text-xs font-semibold uppercase tracking-wide text-cream/50">
             Panel de proceso
           </span>
-          <span className="flex items-center gap-1.5 rounded-full bg-accent/15 px-2.5 py-1 text-[11px] font-semibold text-accent">
-            <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-accent" />
+          <span className="flex items-center gap-1.5 rounded-full bg-accent/15 px-2.5 py-1 text-[11px] font-semibold text-accent-bright">
+            <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-accent-bright" />
             En marcha
           </span>
         </div>
@@ -73,7 +73,7 @@ export function HeroVisual() {
         <div className="mt-5 rounded-2xl bg-cream/[0.04] p-4">
           <div className="flex items-center justify-between text-[11px] text-cream/50">
             <span>Horas recuperadas / mes</span>
-            <span className="font-semibold text-accent">↑ 32%</span>
+            <span className="font-semibold text-accent-bright">↑ 32%</span>
           </div>
           <svg viewBox="0 0 300 70" className="mt-2 h-16 w-full" fill="none">
             <polyline
@@ -106,7 +106,7 @@ export function HeroVisual() {
               </animateMotion>
             </circle>
           </svg>
-          <div className="mt-1 flex justify-between text-[10px] text-cream/35">
+          <div className="mt-1 flex justify-between text-[10px] text-cream/60">
             {["Ene", "Feb", "Mar", "Abr", "May", "Jun"].map((m) => (
               <span key={m}>{m}</span>
             ))}
@@ -141,7 +141,7 @@ export function HeroVisual() {
               <div className="font-display text-lg font-bold text-gold">
                 {stat.value}
               </div>
-              <div className="mt-0.5 text-[10px] leading-tight text-cream/45">
+              <div className="mt-0.5 text-[10px] leading-tight text-cream/65">
                 {stat.label}
               </div>
             </div>

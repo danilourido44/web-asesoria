@@ -1,11 +1,15 @@
 @import "tailwindcss";
 
 :root {
-  /* Identidad Confidyx — ver .claude o los docs de marca en la raíz del repo */
+  /* Identidad Confidyx — ver .claude o los docs de marca en la raíz del repo.
+     --color-muted y --color-accent se oscurecieron ligeramente respecto al
+     valor original de marca (#8B939C / #2E9E6B) para pasar el contraste
+     WCAG AA (4.5:1) como texto sobre fondo claro — verificado con axe-core. */
   --color-navy: #0b192c; /* primario */
   --color-ink: #14213d; /* texto principal */
-  --color-muted: #8b939c; /* secundario / texto secundario */
-  --color-accent: #2e9e6b; /* verde — solo resultados positivos */
+  --color-muted: #5f6975; /* secundario / texto secundario */
+  --color-accent: #1f7550; /* verde — solo resultados positivos, uso general (texto sobre fondo claro) */
+  --color-accent-bright: #2e9e6b; /* mismo verde, más claro — SOLO como texto sobre fondos oscuros (navy), donde el --color-accent oscurecido no pasa contraste */
   --color-gold: #d9a441; /* ámbar — acción / urgencia */
   --color-cream: #f7f9f7; /* fondo principal */
   --color-mist: #eef0f2; /* fondo alterno */
@@ -16,6 +20,7 @@
   --color-ink: var(--color-ink);
   --color-muted: var(--color-muted);
   --color-accent: var(--color-accent);
+  --color-accent-bright: var(--color-accent-bright);
   --color-gold: var(--color-gold);
   --color-cream: var(--color-cream);
   --color-mist: var(--color-mist);

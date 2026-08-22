@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Space_Grotesk, Inter } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import "./globals.css";
 import { ChatWidget } from "@/components/ChatWidget";
 
@@ -17,6 +18,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://confidyx.com"),
   title: "Confidyx — El fin del agujero negro documental",
   description:
     "Ayudamos a despachos de asesoría fiscal, contable y laboral a atender más clientes con el mismo equipo. Bandeja Cero Documentos, Expediente Completo 30D y Cierre Fiscal Blindado, en marcha en menos de 30 días.",
@@ -47,6 +49,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         {children}
         <ChatWidget />
         <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   );
