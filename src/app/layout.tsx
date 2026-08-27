@@ -37,6 +37,16 @@ export const metadata: Metadata = {
     type: "website",
     siteName: "Confidyx",
   },
+  icons: {
+    // Dos variantes del icono: marca navy sobre fondo claro para navegadores
+    // en modo claro, y marca clara sobre fondo navy para modo oscuro — el
+    // propio navegador elige cuál servir según prefers-color-scheme.
+    icon: [
+      { url: "/icon-light.png", media: "(prefers-color-scheme: light)" },
+      { url: "/icon-dark.png", media: "(prefers-color-scheme: dark)" },
+      { url: "/icon-dark.png" }, // fallback para quien no evalúe media (p. ej. bots de buscadores)
+    ],
+  },
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {

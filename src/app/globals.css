@@ -111,6 +111,23 @@ body {
   animation: confidyx-drift 8s ease-in-out infinite;
 }
 
+/* Despliegue del panel al cambiar de pestaña (Reservar llamada / Escribir mensaje) */
+@keyframes confidyx-panel-pop {
+  from {
+    opacity: 0;
+    transform: translateY(-6px) scaleY(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scaleY(1);
+  }
+}
+
+.animate-panel-pop {
+  transform-origin: top;
+  animation: confidyx-panel-pop 0.28s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
 /* Revelado al hacer scroll: estado inicial oculto + transición suave al
    entrar en viewport (activado vía IntersectionObserver en <Reveal>). */
 .reveal {
@@ -242,6 +259,7 @@ body {
   .animate-drift,
   .animate-aurora,
   .animate-aurora-slow,
+  .animate-panel-pop,
   .text-shine {
     animation: none;
   }

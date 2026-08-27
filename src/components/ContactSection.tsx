@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 import { Reveal } from "./Reveal";
 import { StaggerText } from "./StaggerText";
 import { handleSpotlightMove } from "@/lib/spotlight";
@@ -8,8 +9,6 @@ import { handleSpotlightMove } from "@/lib/spotlight";
 const CONTACT_EMAIL = "confidyx@gmail.com";
 const CONTACT_PHONE = "649 32 38 04";
 const CONTACT_PHONE_HREF = "+34649323804";
-const BOOKING_URL =
-  "https://calendar.google.com/appointments/schedules/AcZssZ0ke7FNA90uIsI1pGbNKGz6e0Z6OzV8K_c4cFrUtz6ea2miy5ENR6vbfDi50Enj78z7W4Mu6bKu";
 
 const FIELDS = [
   { name: "nombre", label: "Nombre", type: "text", required: true },
@@ -137,20 +136,48 @@ export function ContactSection() {
           </div>
 
           {mode === "calendar" ? (
-            <div className="overflow-hidden rounded-2xl bg-cream">
-              <iframe
-                src={BOOKING_URL}
-                title="Reservar una llamada con Confidyx"
-                width="100%"
-                height="650"
-                style={{ border: 0 }}
-                loading="lazy"
-              />
+            <div
+              key="calendar"
+              onMouseMove={handleSpotlightMove}
+              className="spotlight animate-panel-pop flex min-h-[420px] flex-col items-center justify-center rounded-2xl bg-cream p-8 text-center"
+            >
+              <div className="flex h-14 w-14 items-center justify-center rounded-full bg-gold/15">
+                <svg viewBox="0 0 24 24" className="h-7 w-7 text-gold" fill="none">
+                  <rect x="3.5" y="5" width="17" height="16" rx="2.5" stroke="currentColor" strokeWidth="1.8" />
+                  <path d="M3.5 9.5H20.5" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" />
+                  <path d="M8 3V6.5M16 3V6.5" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" />
+                  <path d="M8 13.5L11 16.5L16 11" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" fill="none" />
+                </svg>
+              </div>
+              <h3 className="mt-5 font-display text-xl font-bold text-navy">
+                Reserva en 1 minuto
+              </h3>
+              <p className="mt-2 max-w-xs text-sm leading-6 text-ink/70">
+                Elige el hueco que mejor te venga en nuestro calendario. 30
+                minutos, sin compromiso.
+              </p>
+              <Link
+                href="/reservar-llamada"
+                onMouseMove={handleSpotlightMove}
+                className="spotlight spotlight-btn mt-6 inline-flex items-center gap-2 rounded-full bg-gold px-6 py-3.5 text-sm font-semibold text-navy transition-transform hover:scale-[1.02]"
+              >
+                Ver horarios disponibles
+                <svg viewBox="0 0 24 24" className="h-4 w-4" fill="none">
+                  <path
+                    d="M9 6L15 12L9 18"
+                    stroke="currentColor"
+                    strokeWidth="2.2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                </svg>
+              </Link>
             </div>
           ) : status === "sent" ? (
             <div
+              key="sent"
               onMouseMove={handleSpotlightMove}
-              className="spotlight flex min-h-[420px] flex-col items-center justify-center rounded-2xl bg-cream p-8 text-center"
+              className="spotlight animate-panel-pop flex min-h-[420px] flex-col items-center justify-center rounded-2xl bg-cream p-8 text-center"
               role="status"
             >
               <div className="flex h-14 w-14 items-center justify-center rounded-full bg-accent/10">
@@ -181,9 +208,10 @@ export function ContactSection() {
             </div>
           ) : (
             <form
+              key="form"
               onSubmit={handleSubmit}
               onMouseMove={handleSpotlightMove}
-              className="spotlight rounded-2xl bg-cream p-8"
+              className="spotlight animate-panel-pop rounded-2xl bg-cream p-8"
               noValidate
             >
               <div className="grid gap-5 sm:grid-cols-2">
