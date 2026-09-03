@@ -1,6 +1,7 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import Link from "next/link";
 import { LogoMark } from "./Logo";
 import { handleSpotlightMove } from "@/lib/spotlight";
 
@@ -13,6 +14,25 @@ const NAV_LINKS = [
 
 export function Header() {
   const [open, setOpen] = useState(false);
+  const [activeId, setActiveId] = useState("");
+
+  useEffect(() => {
+    const sections = NAV_LINKS.map((l) => document.getElementById(l.href.slice(1))).filter(
+      (el): el is HTMLElement => !!el,
+    );
+    if (sections.length === 0) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          if (entry.isIntersecting) setActiveId(entry.target.id);
+        }
+      },
+      { rootMargin: "-45% 0px -50% 0px", threshold: 0 },
+    );
+    sections.forEach((el) => observer.observe(el));
+    return () => observer.disconnect();
+  }, []);
 
   return (
     <header className="sticky top-0 z-50 border-b border-mist bg-cream/90 backdrop-blur">
@@ -21,25 +41,29 @@ export function Header() {
           <LogoMark />
         </a>
 
-        <nav className="hidden items-center gap-6 lg:flex xl:gap-8">
+        <nav className="hidden items-center gap-1 lg:flex">
           {NAV_LINKS.map((link) => (
             <a
               key={link.href}
               href={link.href}
-              className="text-sm font-medium text-ink/80 transition-colors hover:text-navy"
+              className={
+                activeId === link.href.slice(1)
+                  ? "rounded-full bg-mist px-3.5 py-1.5 text-sm font-semibold text-navy transition-colors"
+                  : "rounded-full px-3.5 py-1.5 text-sm font-medium text-ink/70 transition-colors hover:text-navy"
+              }
             >
               {link.label}
             </a>
           ))}
         </nav>
 
-        <a
-          href="#contacto"
+        <Link
+          href="/diagnostico"
           onMouseMove={handleSpotlightMove}
           className="spotlight spotlight-btn hidden rounded-full bg-gold px-5 py-2.5 text-sm font-semibold text-navy transition-transform hover:scale-[1.03] lg:inline-block"
         >
           Pedir diagnóstico
-        </a>
+        </Link>
 
         <button
           type="button"
@@ -82,13 +106,13 @@ export function Header() {
                 {link.label}
               </a>
             ))}
-            <a
-              href="#contacto"
+            <Link
+              href="/diagnostico"
               onClick={() => setOpen(false)}
               className="mt-2 rounded-full bg-gold px-5 py-2.5 text-center text-sm font-semibold text-navy"
             >
               Pedir diagnóstico
-            </a>
+            </Link>
           </nav>
         </div>
       )}

@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { HeroVisual } from "./HeroVisual";
 import { HeroBackdrop } from "./HeroBackdrop";
 import { Reveal } from "./Reveal";
@@ -92,13 +93,13 @@ export function Hero() {
             </p>
 
             <div className="mt-10 flex flex-col gap-4 sm:flex-row sm:items-center">
-              <a
-                href="#contacto"
+              <Link
+                href="/diagnostico"
                 onMouseMove={handleSpotlightMove}
                 className="spotlight spotlight-btn rounded-full bg-gold px-7 py-3.5 text-center text-sm font-semibold text-navy shadow-sm transition-transform hover:scale-[1.02]"
               >
                 Pedir Diagnóstico Documental Express →
-              </a>
+              </Link>
               <a
                 href="#proceso"
                 className="rounded-full border border-navy/20 px-7 py-3.5 text-center text-sm font-semibold text-navy transition-colors hover:bg-mist"
