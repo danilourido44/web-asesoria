@@ -5,11 +5,15 @@ import Link from "next/link";
 import { LogoMark } from "./Logo";
 import { handleSpotlightMove } from "@/lib/spotlight";
 
+// Con "/" delante en vez de solo "#ancla": si ya estás en la portada
+// salta a la sección igual que antes, pero si estás en otra página
+// (diagnóstico, aviso legal...) primero te lleva a la portada y luego
+// baja a la sección, en vez de no hacer nada.
 const NAV_LINKS = [
-  { href: "#problema", label: "El problema" },
-  { href: "#proceso", label: "Cómo funciona" },
-  { href: "#servicios", label: "Servicios" },
-  { href: "#nosotros", label: "Nosotros" },
+  { href: "/#problema", label: "El problema" },
+  { href: "/#proceso", label: "Cómo funciona" },
+  { href: "/#servicios", label: "Servicios" },
+  { href: "/#nosotros", label: "Nosotros" },
 ];
 
 export function Header() {
@@ -37,7 +41,7 @@ export function Header() {
   return (
     <header className="sticky top-0 z-50 border-b border-mist bg-cream/90 backdrop-blur">
       <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
-        <a href="#inicio" onClick={() => setOpen(false)}>
+        <a href="/#inicio" onClick={() => setOpen(false)}>
           <LogoMark />
         </a>
 

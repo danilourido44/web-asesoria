@@ -4,11 +4,14 @@ const CONTACT_EMAIL = "confidyx@gmail.com";
 const CONTACT_PHONE = "649 32 38 04";
 const CONTACT_PHONE_HREF = "+34649323804";
 
+// Con "/" delante: si ya estás en la portada salta a la sección, si
+// estás en otra página (diagnóstico, aviso legal...) te lleva primero a
+// la portada y luego a la sección, en vez de no hacer nada.
 const FOOTER_LINKS = [
-  { href: "#problema", label: "El problema" },
-  { href: "#proceso", label: "Cómo funciona" },
-  { href: "#servicios", label: "Servicios" },
-  { href: "#nosotros", label: "Nosotros" },
+  { href: "/#problema", label: "El problema" },
+  { href: "/#proceso", label: "Cómo funciona" },
+  { href: "/#servicios", label: "Servicios" },
+  { href: "/#nosotros", label: "Nosotros" },
 ];
 
 const LEGAL_LINKS = [
@@ -177,7 +180,7 @@ export function Footer() {
           <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:gap-6">
             <span>Hecho para despachos que quieren crecer sin volverse locos.</span>
             <a
-              href="#inicio"
+              href="/#inicio"
               className="inline-flex items-center gap-1.5 font-semibold text-cream/70 hover:text-gold"
             >
               Volver arriba
