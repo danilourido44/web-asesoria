@@ -180,7 +180,7 @@ export function Footer() {
           <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:gap-6">
             <span>Hecho para despachos que quieren crecer sin volverse locos.</span>
             <a
-              href="/#inicio"
+              href="/#como-trabajamos"
               className="inline-flex items-center gap-1.5 font-semibold text-cream/70 hover:text-gold"
             >
               Volver arriba

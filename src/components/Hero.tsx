@@ -59,7 +59,7 @@ const DATA_CHIPS = [
 
 export function Hero() {
   return (
-    <section id="inicio" className="relative px-6 pt-16 pb-20 md:pt-24 md:pb-28">
+    <section className="relative px-6 pt-16 pb-20 md:pt-24 md:pb-28">
       {/* Halo difuminado compartido: une visualmente el panel de proceso con
           el texto ("Para despachos de asesoría fiscal...") en vez de dejar
           el panel como una tarjeta aislada sobre fondo en blanco. */}

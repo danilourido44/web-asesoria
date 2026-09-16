@@ -10,6 +10,7 @@ import { handleSpotlightMove } from "@/lib/spotlight";
 // (diagnóstico, aviso legal...) primero te lleva a la portada y luego
 // baja a la sección, en vez de no hacer nada.
 const NAV_LINKS = [
+  { href: "/#como-trabajamos", label: "Cómo trabajamos" },
   { href: "/#problema", label: "El problema" },
   { href: "/#proceso", label: "Cómo funciona" },
   { href: "/#servicios", label: "Servicios" },
@@ -41,7 +42,7 @@ export function Header() {
   return (
     <header className="sticky top-0 z-50 border-b border-mist bg-cream/90 backdrop-blur">
       <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
-        <a href="/#inicio" onClick={() => setOpen(false)}>
+        <a href="/#como-trabajamos" onClick={() => setOpen(false)}>
           <LogoMark />
         </a>
 
