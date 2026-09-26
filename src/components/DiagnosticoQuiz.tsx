@@ -198,11 +198,11 @@ export function DiagnosticoQuiz() {
 
         <div className="mt-6 flex flex-col gap-3 sm:flex-row">
           <Link
-            href="/reservar-llamada"
+            href="/#contacto"
             onMouseMove={handleSpotlightMove}
             className="spotlight spotlight-btn flex-1 rounded-full bg-gold px-6 py-3.5 text-center text-sm font-semibold text-navy transition-transform hover:scale-[1.02]"
           >
-            Agendar llamada de 30 min
+            Escríbenos para hablarlo
           </Link>
         </div>
 

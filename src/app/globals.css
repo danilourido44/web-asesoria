@@ -111,7 +111,7 @@ body {
   animation: confidyx-drift 8s ease-in-out infinite;
 }
 
-/* Despliegue del panel al cambiar de pestaña (Reservar llamada / Escribir mensaje) */
+/* Despliegue del panel al cambiar de pestaña (contacto) */
 @keyframes confidyx-panel-pop {
   from {
     opacity: 0;

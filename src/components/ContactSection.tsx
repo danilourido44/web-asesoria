@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import Link from "next/link";
 import { Reveal } from "./Reveal";
 import { StaggerText } from "./StaggerText";
 import { handleSpotlightMove } from "@/lib/spotlight";
@@ -15,10 +14,8 @@ const FIELDS = [
 ];
 
 type Status = "idle" | "sending" | "sent" | "error";
-type Mode = "calendar" | "form";
 
 export function ContactSection() {
-  const [mode, setMode] = useState<Mode>("calendar");
   const [status, setStatus] = useState<Status>("idle");
   const [errorMsg, setErrorMsg] = useState("");
 
@@ -80,78 +77,7 @@ export function ContactSection() {
         </Reveal>
 
         <Reveal delay={150}>
-          <div
-            role="tablist"
-            aria-label="Forma de contacto"
-            className="mb-5 flex gap-1 rounded-full bg-cream/10 p-1 text-sm font-semibold"
-          >
-            <button
-              type="button"
-              role="tab"
-              aria-selected={mode === "calendar"}
-              onClick={() => setMode("calendar")}
-              className={
-                mode === "calendar"
-                  ? "flex-1 rounded-full bg-gold py-2.5 text-navy transition-colors"
-                  : "flex-1 rounded-full py-2.5 text-cream/70 transition-colors hover:text-cream"
-              }
-            >
-              Reservar llamada
-            </button>
-            <button
-              type="button"
-              role="tab"
-              aria-selected={mode === "form"}
-              onClick={() => setMode("form")}
-              className={
-                mode === "form"
-                  ? "flex-1 rounded-full bg-gold py-2.5 text-navy transition-colors"
-                  : "flex-1 rounded-full py-2.5 text-cream/70 transition-colors hover:text-cream"
-              }
-            >
-              Escribir mensaje
-            </button>
-          </div>
-
-          {mode === "calendar" ? (
-            <div
-              key="calendar"
-              onMouseMove={handleSpotlightMove}
-              className="spotlight animate-panel-pop flex min-h-[420px] flex-col items-center justify-center rounded-2xl bg-cream p-8 text-center"
-            >
-              <div className="flex h-14 w-14 items-center justify-center rounded-full bg-gold/15">
-                <svg viewBox="0 0 24 24" className="h-7 w-7 text-gold" fill="none">
-                  <rect x="3.5" y="5" width="17" height="16" rx="2.5" stroke="currentColor" strokeWidth="1.8" />
-                  <path d="M3.5 9.5H20.5" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" />
-                  <path d="M8 3V6.5M16 3V6.5" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" />
-                  <path d="M8 13.5L11 16.5L16 11" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" fill="none" />
-                </svg>
-              </div>
-              <h3 className="mt-5 font-display text-xl font-bold text-navy">
-                Reserva en 1 minuto
-              </h3>
-              <p className="mt-2 max-w-xs text-sm leading-6 text-ink/70">
-                Elige el hueco que mejor te venga en nuestro calendario. 30
-                minutos, sin compromiso.
-              </p>
-              <Link
-                href="/reservar-llamada"
-                onMouseMove={handleSpotlightMove}
-                className="spotlight spotlight-btn mt-6 inline-flex items-center gap-2 rounded-full bg-gold px-6 py-3.5 text-sm font-semibold text-navy transition-transform hover:scale-[1.02]"
-              >
-                Ver horarios disponibles
-                <svg viewBox="0 0 24 24" className="h-4 w-4" fill="none">
-                  <path
-                    d="M9 6L15 12L9 18"
-                    stroke="currentColor"
-                    strokeWidth="2.2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
-                </svg>
-              </Link>
-            </div>
-          ) : status === "sent" ? (
+          {status === "sent" ? (
             <div
               key="sent"
               onMouseMove={handleSpotlightMove}
