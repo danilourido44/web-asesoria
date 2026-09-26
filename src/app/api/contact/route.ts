@@ -25,7 +25,7 @@ export async function POST(req: Request) {
   if (!user || !pass) {
     console.error("Faltan GMAIL_USER / GMAIL_APP_PASSWORD en el entorno.");
     return Response.json(
-      { error: "El formulario no está configurado todavía. Escríbenos directamente a " + CONTACT_EMAIL },
+      { error: "El formulario no está disponible ahora mismo. Inténtalo más tarde." },
       { status: 500 },
     );
   }
@@ -91,7 +91,7 @@ export async function POST(req: Request) {
   } catch (err) {
     console.error("Error enviando email de contacto:", err);
     return Response.json(
-      { error: "No se pudo enviar el mensaje. Escríbenos directamente a " + CONTACT_EMAIL },
+      { error: "No se pudo enviar el mensaje. Inténtalo de nuevo en unos minutos." },
       { status: 502 },
     );
   }

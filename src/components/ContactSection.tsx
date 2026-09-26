@@ -6,9 +6,6 @@ import { Reveal } from "./Reveal";
 import { StaggerText } from "./StaggerText";
 import { handleSpotlightMove } from "@/lib/spotlight";
 
-const CONTACT_EMAIL = "confidyx@gmail.com";
-const CONTACT_PHONE = "649 32 38 04";
-const CONTACT_PHONE_HREF = "+34649323804";
 
 const FIELDS = [
   { name: "nombre", label: "Nombre", type: "text", required: true },
@@ -52,7 +49,7 @@ export function ContactSection() {
       setStatus("sent");
       form.reset();
     } catch {
-      setErrorMsg(`No se pudo conectar. Escríbenos directamente a ${CONTACT_EMAIL}`);
+      setErrorMsg("No se pudo conectar. Inténtalo de nuevo en unos minutos.");
       setStatus("error");
     }
   }
@@ -80,25 +77,6 @@ export function ContactSection() {
             tu propio agujero negro documental — y qué número real hay
             detrás de esas horas.
           </p>
-
-          <dl className="mt-10 space-y-4 text-sm text-cream/70">
-            <div className="flex items-center gap-3">
-              <dt className="font-semibold text-cream">Email</dt>
-              <dd>
-                <a href={`mailto:${CONTACT_EMAIL}`} className="hover:text-gold">
-                  {CONTACT_EMAIL}
-                </a>
-              </dd>
-            </div>
-            <div className="flex items-center gap-3">
-              <dt className="font-semibold text-cream">Teléfono</dt>
-              <dd>
-                <a href={`tel:${CONTACT_PHONE_HREF}`} className="hover:text-gold">
-                  {CONTACT_PHONE}
-                </a>
-              </dd>
-            </div>
-          </dl>
         </Reveal>
 
         <Reveal delay={150}>

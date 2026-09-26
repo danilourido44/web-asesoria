@@ -5,8 +5,6 @@ import Link from "next/link";
 import { SERVICES } from "@/lib/services-data";
 import { handleSpotlightMove } from "@/lib/spotlight";
 
-const CONTACT_EMAIL = "confidyx@gmail.com";
-
 type Signal = "bandeja" | "expediente" | "cierre" | null;
 
 type QuestionOption = {
@@ -154,11 +152,6 @@ export function DiagnosticoQuiz() {
         : "expediente";
   const recommended = SERVICES.find((s) => s.id === recommendedId)!;
 
-  const mailSubject = encodeURIComponent(`He hecho el diagnóstico — interesado en ${recommended.name}`);
-  const mailBody = encodeURIComponent(
-    `Hola Confidyx,\n\nHe hecho el test de diagnóstico en la web y me habéis recomendado "${recommended.name}".\n\nMe gustaría que habláramos sobre mi despacho.\n\nUn saludo,`,
-  );
-
   if (finished) {
     return (
       <div
@@ -211,13 +204,6 @@ export function DiagnosticoQuiz() {
           >
             Agendar llamada de 30 min
           </Link>
-          <a
-            href={`mailto:${CONTACT_EMAIL}?subject=${mailSubject}&body=${mailBody}`}
-            onMouseMove={handleSpotlightMove}
-            className="spotlight flex-1 rounded-full border border-cream/25 px-6 py-3.5 text-center text-sm font-semibold text-cream transition-colors hover:bg-cream/10"
-          >
-            Mandar por email
-          </a>
         </div>
 
         <button

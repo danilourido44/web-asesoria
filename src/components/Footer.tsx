@@ -86,19 +86,6 @@ export function Footer() {
               Contacto
             </p>
             <ul className="mt-4 space-y-2.5">
-              <li className="flex items-start gap-2 text-sm text-cream/75">
-                <svg viewBox="0 0 24 24" className="mt-0.5 h-4 w-4 shrink-0" fill="none">
-                  <path
-                    d="M12 21s7-6.5 7-11.5A7 7 0 0 0 5 9.5C5 14.5 12 21 12 21Z"
-                    stroke="currentColor"
-                    strokeWidth="1.6"
-                    strokeLinejoin="round"
-                    fill="none"
-                  />
-                  <circle cx="12" cy="9.5" r="2.3" stroke="currentColor" strokeWidth="1.6" fill="none" />
-                </svg>
-                Ferrol (A Coruña), España
-              </li>
             </ul>
             <p className="mt-4 inline-flex items-center gap-1.5 rounded-full border border-cream/15 px-3 py-1.5 text-xs text-cream/60">
               <svg viewBox="0 0 24 24" className="h-3.5 w-3.5 text-accent-bright" fill="none">
