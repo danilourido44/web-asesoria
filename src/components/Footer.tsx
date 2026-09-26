@@ -1,9 +1,5 @@
 import { Logo } from "./Logo";
 
-const CONTACT_EMAIL = "confidyx@gmail.com";
-const CONTACT_PHONE = "649 32 38 04";
-const CONTACT_PHONE_HREF = "+34649323804";
-
 // Con "/" delante: si ya estás en la portada salta a la sección, si
 // estás en otra página (diagnóstico, reservar llamada...) te lleva primero a
 // la portada y luego a la sección, en vez de no hacer nada.
@@ -32,16 +28,6 @@ const SOCIAL_LINKS = [
     icon: (
       <path
         d="M14 8.5h2.5V5h-2.5C11.5 5 10 6.6 10 9v2H8v3.5h2V21h3.5v-6.5H16l.5-3.5h-3V9c0-.6.2-1 1-1z"
-        fill="currentColor"
-      />
-    ),
-  },
-  {
-    label: "WhatsApp",
-    href: "https://wa.me/34649323804",
-    icon: (
-      <path
-        d="M12 3a9 9 0 0 0-7.8 13.5L3 21l4.6-1.2A9 9 0 1 0 12 3Zm0 2a7 7 0 0 1 5.9 10.8l-.2.3.6 2.2-2.3-.6-.3.2A7 7 0 1 1 12 5Zm-2.9 3.3c-.2 0-.5 0-.7.4-.2.4-.9.9-.9 2.1s.9 2.4 1 2.6c.2.2 1.7 2.6 4.1 3.6 2 .9 2.4.7 2.9.7.4 0 1.3-.5 1.5-1.1.2-.5.2-1 .1-1.1-.1-.1-.3-.2-.6-.4-.3-.2-1.5-.8-1.8-.8-.2-.1-.4-.1-.6.2-.2.3-.6.8-.8 1-.1.1-.3.2-.6 0-.3-.1-1.1-.4-2.1-1.3-.8-.7-1.3-1.6-1.4-1.9-.1-.3 0-.4.1-.6l.4-.5c.1-.1.2-.3.2-.4.1-.2 0-.3 0-.5-.1-.1-.6-1.5-.8-2-.2-.5-.4-.5-.6-.5h-.1Z"
         fill="currentColor"
       />
     ),
@@ -100,36 +86,6 @@ export function Footer() {
               Contacto
             </p>
             <ul className="mt-4 space-y-2.5">
-              <li>
-                <a
-                  href={`mailto:${CONTACT_EMAIL}`}
-                  className="flex items-center gap-2 text-sm text-cream/75 hover:text-gold"
-                >
-                  <svg viewBox="0 0 24 24" className="h-4 w-4 shrink-0" fill="none">
-                    <rect x="3" y="5" width="18" height="14" rx="2" stroke="currentColor" strokeWidth="1.6" />
-                    <path d="M3 7l9 6 9-6" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" fill="none" />
-                  </svg>
-                  {CONTACT_EMAIL}
-                </a>
-              </li>
-              <li>
-                <a
-                  href={`tel:${CONTACT_PHONE_HREF}`}
-                  className="flex items-center gap-2 text-sm text-cream/75 hover:text-gold"
-                >
-                  <svg viewBox="0 0 24 24" className="h-4 w-4 shrink-0" fill="none">
-                    <path
-                      d="M6.5 3.5h3l1.5 4-2 1.5a11 11 0 0 0 5.5 5.5l1.5-2 4 1.5v3c0 1.1-.9 2-2 2C11 19 5 13 3 6.5c0-1.1.9-2 2-2Z"
-                      stroke="currentColor"
-                      strokeWidth="1.6"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      fill="none"
-                    />
-                  </svg>
-                  {CONTACT_PHONE}
-                </a>
-              </li>
               <li className="flex items-start gap-2 text-sm text-cream/75">
                 <svg viewBox="0 0 24 24" className="mt-0.5 h-4 w-4 shrink-0" fill="none">
                   <path
